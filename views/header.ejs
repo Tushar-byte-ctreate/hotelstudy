@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><%=title%></title>
+        <% if(!description ) { %>
+            <meta name="description" content="Hotel Study will help you to understand the hotel contant with latest hotels news and tricks from industry experts.">
+       <% }else{%>
+        <meta name="description" content="<%=description%>">
+       <% }%>
+        
+        <link rel="icon" type="image/x-icon" href="/image/favicon.png">
+        <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="theme-color" content="#4535aa">
+        <!-- axios cdn -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        
+        <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+            </script>
+
+        <!-- css style -->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/new.css">
+        <!-- fontawsome -->
+        <script
+      src="https://kit.fontawesome.com/6d985e968b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+
+    <!-- summarnote cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav> <div class="toggal"><i class="fas fa-bars"></i></div>
+            <div class="logo">
+                <h2> <a style="text-decoration:none; color:#000;" href="/"> HotelStudy.Org</a> </h2>
+            </div>
+           <div id='search'> <i  class="fas fa-search fa-2x"></i></div>
+          
+            <ul class="navlinks">
+               
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Learn <i class="fas fa-angle-down"></i></a></li>
+                <li><a href="/courses-list/">Courses</a></li>
+                <li><a href="/interview">Interviews</a></li>
+                <li><a href="/">More</a></li>
+                <div class="cut"><i class="fas fa-times"></i></div>
+               
+                    <% if(locals.session.loggedin && user.admin == true){ %>
+                        <li><a href="/admin-home">Admin</a></li>
+                    }else{ %>
+
+                    <%}%>
+            
+            </ul>
+        <div class="search_box">
+            <form action="/query/" method="put">
+               <input type='search' name="search_type" placeholder="Type to search" />
+               <button type="submit"><i  class="fas fa-search fa-2x"></i></button>
+            </form>
+            <span>
+                <% if (locals.session.loggedin){ %>
+                    <div class="userPro">
+                        <img id='userImg' style="cursor: pointer" src="<%=user.profile%>" alt="user_image">
+                        
+                    </div>
+               <% }else{ %>
+                <button ><a href="/login/auth-user">login</a></button>
+                <a id="login-btn" style="background:#40348f; text-decoration:none;padding:5px 10px;color:#fff;" href="/login/auth-user">login</a>
+                <%} %>
+        </span>
+        <% if (locals.session.loggedin){ %>
+    <div id="hideSearch" ><i class="fas fa-times"></i></div>
+        </div>
+        <div id='userData' class="userdata">
+            <a href="/user/profile/<%=user._id%>">Profile</a>
+            <a href="">Settings</a>
+            <a href="/logout">Logout</a>
+            <i id='close' style="cursor: pointer" class="fas fa-sort-up"></i>
+        </div>
+        <% }else{ %>
+            <%} %>
+        </nav>

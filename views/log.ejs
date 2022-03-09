@@ -1,0 +1,56 @@
+
+
+<%- include('header'); -%>
+
+<% if(error == "" || error == null ){%>
+
+    <%}else{%>
+      <span class="error">
+        <p><%=error%></p> <i id="removeFlash" class="fas fa-times"></i>
+      </span>
+    <%}%>
+    <% if(info == "" ||info == null){%>
+        
+       
+      <% }else{%>
+        <span class="info">
+            <p><%= info%> </p> <i   id="removeFlash" class="fas fa-times"></i>
+          </span>
+        
+    <%} %>
+<div class="container-6">
+  
+    <div class="login">
+     <span class="line-back-5"></span>
+     <span class="line-back-6"></span>
+        <form action="/login/user" method="post" id='login'>
+            <h3>Login</h3>
+            <input type="text" name="username" placeholder="Username" required />
+            <input type="password" name="password" id="" placeholder="Password" required />
+            <button type="submit" name="login">Login</button>
+            <p>Don't have an Account, Sign up!</p>
+            <span class='sign'> Sign up</span>
+            <p id="forgetPass" style="color: blue;text-decoration: underline; cursor: pointer;">Forget Password</p>
+        </form>
+        <form action="/sign-up/user" method="POST" id='signin'>
+         <h3>Sign in</h3>
+         <input type="text" name="name" id="name" placeholder="Name"required />
+         <input type="email" name="username" id="email" placeholder="Email"required />
+         <input type="password" name="password" id="" placeholder="Password"required />
+         <button type="submit" >Sign in</button>
+         <p>Already have an account, log in</p>
+       
+            <span id='log' class='sign'> login</span>
+            <p>You agreed with <a href="/hs/privecy-policy">Privacy Policy</a> by signing up</p>
+     </form>
+     <form action="/forgot/password" method="post" id='forgetForm'>
+         <i id='hideForm' style="margin-left: 250px;cursor: pointer;" class='fa fa-times'></i>
+         <label style="padding:5px;color: #fff; font-size: 18px" for="email">Plese enter your username , your username will be your email address</label> 
+         <input type="email" name="username" id="" placeholder="Enter your email address" required>
+         <button type="submit" >Send </button>
+         <a style="margin-left:200px" href="/help">Get Help</a>
+     </form>
+    </div>
+    
+</div>
+<%- include('footer'); -%>

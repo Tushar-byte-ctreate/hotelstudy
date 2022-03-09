@@ -1,0 +1,29 @@
+<%- include('header'); -%>
+<%  if(message === null ){%>
+
+    <% }else{ %>
+     <span id='flashMessage' ><h4 ><%= message %></h4></span>
+    
+    <% }%>
+    
+<div class="container-6">
+
+<div class="login">
+    <span class="line-back-5"></span>
+    <span class="line-back-6"></span>
+       <form action="/hs/contect/us" method="POST" id=''  height="500px">
+        <h3>Contect Us</h3>
+        <p>All fields are required</p>
+        <input type="text" name="name" id="name" placeholder="Name"required />
+        <input type="email" name="email" id="email" placeholder="Email"required />
+        <textarea style="width: 250px; height: 100px; margin: 5px; border-radius: 5px; border: 2px solid #40348f" type="text" name="message" id="" placeholder="Enter your message here ..."required ></textarea>
+    <p>you agreed with <a href="/">term and condition</a></p>
+        <input style="width: 20px;" type="checkbox" name="checkBox" id="" required>
+        <button type="submit" >Send</button>
+    </form>
+   </div>
+</div>
+
+
+
+<%- include('footer'); -%>

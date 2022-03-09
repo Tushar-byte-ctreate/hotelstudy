@@ -1,0 +1,395 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
+}
+nav h2{
+    padding: 10px;
+     color:#ec639f;
+}
+nav div{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start; 
+}
+nav div img{
+    margin: 10px;
+    border-radius:50%;
+    cursor: pointer;
+}
+nav div form{
+    padding: 10px 30px;
+    position: relative;
+}
+nav div form input{
+    width: 200px;
+    height: 30px;
+    outline: none;
+font-size:15px;
+border:none;
+border-bottom: 2px solid #40348f;
+}
+nav div form input:focus{
+ outline: none;
+
+}
+input:focus{
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+}
+nav div form button{
+    position: relative;
+   width: 30px;
+   height: 30px;
+   border:none;
+   background:#ffb644 ;
+   color: #fff;
+   cursor: pointer;
+}
+nav div form button:hover{
+    background:#40348f;
+    color: #fff;
+    transition: all 1.0 ease-in;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+height:auto;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+.index{
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
+}
+.index a{
+    padding: 10px;
+    font-size:20px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.index:first-child{
+    margin-top: 10px;
+}
+.index a:hover{
+    background-color:aliceblue;
+    border-radius: 5px;
+}
+.body-con{
+    position:relative;
+    left: 130px;
+    width: 80%;
+    height: auto;
+    min-height:90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.boxes{
+    width: 60%;
+   min-height: 95%;
+   height: auto;
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center
+}
+.child-box{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    border: 2px solid #f5d0e0;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
+}
+.child-box h3{
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    background-color:#40348f;
+    color: #fff;
+
+}
+.child-box a{
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    text-decoration: none;
+    background-color: rgb(241, 129, 208)
+}
+.contact{
+    width: 30%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px, rgba(0, 0, 0, 0.22) 0px 0px 5px;
+}
+.contact h3{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding: 10px 0 0 0;
+    background:#40348f;
+    color: #fff;
+}
+.contact .list-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    justify-content:center;
+}
+.contact .form-fill {
+    width: 90%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    background-color: rgb(196, 190, 190);
+    border-radius: 5px;
+    margin: 5px;
+}
+footer{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background:#ec639f;
+    color: #fff;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 10px;
+}
+/* admin user css */
+.user-wrapper{
+    width: 100%;
+    height: auto;
+    min-height:80vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items: center;
+    position: relative;
+}
+.user-wrapper .user-card{
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#504594;
+    color:#fff;
+    margin: 5px;
+}
+.user-card:hover{
+    background-color:#ec639f;
+    
+}
+.user-wrapper .list-header h2 {
+    padding:10px;
+    margin:0 50px;
+}
+.user-wrapper .list-header {
+width: 100%;
+height: 50px;
+display: flex;
+justify-content:space-between;
+align-items:center;
+}
+.user-wrapper .list-header  strong{
+    font-size:20px;
+    padding: 10px;
+    margin: 50px;
+    cursor: pointer;
+}
+.user-card span{
+    
+    padding:0 20px;
+}
+.user-card a{
+    text-decoration: none;
+    color:#fff;
+    padding:0 20px;
+    font-size:18px;
+}
+.user-card span i{
+    padding: 7px 10px;
+    margin:5px ;
+    background-color: #fff;
+   cursor:pointer;
+    color: #40348f;
+}
+.user-card a:hover{
+    color:#40348f;
+}
+.user-card span a{
+    padding: 7px 7px;
+    margin:5px ;
+    background-color: #fff;
+    text-decoration:none;
+    color: #40348f;
+}
+.user-card span a:hover{
+    color:#ec639f;
+}
+/* form css for create course */
+.add-form{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    display:none;
+    justify-content: center;
+    background-color:#fff;
+    align-items: center;
+    border:#40348f 2px solid;
+    position: absolute;
+    top: 100px;
+    left:25%;
+    transition: all 0.5s ease-in-out;
+}
+.add-form form{
+    width: 400px;
+    height: auto;
+    display: flex;
+   margin-left: 50px;
+   margin-top: 80px;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.add-form form input,textarea{
+    width: 350px;
+    height: 40px;
+    border:#40348f 1px solid;
+    margin: 5px;
+}
+.add-form form span {
+    width: 350px;
+    height: auto;
+}
+.add-form form span button {
+    width: 80px;
+    height: 35px;
+    border:none;
+    margin: 5px;
+    cursor: pointer;
+    border: #40348f 2px solid;
+   background-color: #40348f;
+   color: #fff;
+}
+.add-form form span button:hover{
+    background-color: #fff;
+    color:#40348f;
+}
+
+/* text editor css */
+
+.container-9{
+width: auto;
+min-height:150vh;
+height: auto;
+display: flex;
+
+align-items:center;
+flex-direction:column;
+}
+.container-9 h2{
+    padding: 20px 20px 10px 20px;
+    
+}
+.container-9 form{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.container-9 form input:focus{
+    outline: none;
+}
+.container-9 form input{
+    width: 80%;
+    height: 50px;
+    font-size:18px;
+    margin: 5px 20px;
+    border:none;
+    border-bottom: #40348f 1px solid;
+}
+.container-9 form #btn-post {
+    width: 80px;
+    height: 35px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    border: none;
+    background: #40348f;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+/* flash message */
+.error{
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    background:red;
+    position:absolute;
+    top: 100px;
+    right:0px;
+    z-index: 5;
+    border-radius:10px 0 0 10px ;
+}
+.error p ,i{
+    padding: 10px;
+    cursor: pointer;
+}
+.info{
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    background:rgb(4, 141, 4);
+    position:absolute;
+    top: 100px;
+    right:0px;
+    z-index: 5;
+    color: #fff;
+    border-radius:10px 0 0 10px ;
+}
+.info p ,i{
+    padding: 10px;
+    cursor: pointer;
+}

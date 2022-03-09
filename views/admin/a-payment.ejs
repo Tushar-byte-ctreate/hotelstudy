@@ -1,0 +1,33 @@
+<%- include('a-header'); -%>
+<% if(error == "" || error == null ){%>
+
+  <%}else{%>
+    <span class="error">
+      <p><%=error%></p> <i id="removeFlash" class="bi bi-x-lg"></i>
+    </span>
+  <%}%>
+  <% if(info == "" ||info == null){%>
+      
+     
+    <% }else{%>
+      <span class="info">
+          <p><%= info%> </p> <i   id="removeFlash" class="bi bi-x-lg"></i>
+        </span>
+      
+  <%} %>
+<div class="body-con" style='flex-direction:column;'>
+    <div  class="user-wrapper">
+        <h2>Payments (Donation)</h2>
+        <div class="user-card " style="background:#40348f;" onMouseOver="this.style.background='#ec639f'"  onMouseOut="this.style.background='#40348f'">
+          <a href="">Food Program</a> <p>₹245</p> <span class="">
+            Say Thanks
+            <a href=""><i class="bi bi-envelope"></i></a>
+        </span>
+        </div>
+        
+
+    </div>
+    </div>
+</div>
+
+<%- include('a-footer'); -%>

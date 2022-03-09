@@ -1,0 +1,21 @@
+
+<%- include('header'); -%>
+<div class="container-6">
+    <%  if(massege === null ){%>
+
+        <% }else{ %>
+         <span id='flashMessage' ><h4 ><%= massege %></h4></span>
+        
+        <% }%>
+    <div class="login">
+     <span class="line-back-5"></span>
+     <span class="line-back-6"></span>
+        <form action="/reset/" method="post" id='login'>
+            <h3>Change Password</h3>
+            <input type="password" name="password" id="" placeholder=" Enter new password" required />
+            <input type="hidden" name="token" id="" value="<%= token %>" />
+            <input type="text" name="rePassword" placeholder="Re enter password" required />
+            <button type="submit" name="login">Save</button>
+    </div>
+</div>
+<%- include('footer'); -%>

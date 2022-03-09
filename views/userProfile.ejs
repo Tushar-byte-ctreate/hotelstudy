@@ -1,0 +1,25 @@
+
+<%- include('header'); -%>
+<div class="profilecontainer">
+    <div class="userinformation">
+        <div class="userimage">
+            <img src="https://th.bing.com/th/id/OIP.hxfacP-d8EuBwjKxCL5fqQHaFw?pid=ImgDet&rs=1" alt="userimages">
+        </div>
+        
+        <div class="userother">
+            <i class="fa fa-edit"></i>
+            <h3><%=user.name%></h3>
+            <hr>
+            <h4><%user.username%></h4>
+            <hr>
+            <h4>You are with us since <%user.createdAt%></h4>
+            <hr>
+        </div>
+        <div class="userposition">
+        </div>
+    </div>
+    <hr>
+    <div class="userquery"> 
+    </div>
+</div>
+<%- include('footer'); -%>

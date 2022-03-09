@@ -1,0 +1,35 @@
+<%- include('a-header'); -%>
+<% if(error == "" || error == null ){%>
+
+  <%}else{%>
+    <span class="error">
+      <p><%=error%></p> <i id="removeFlash" class="bi bi-x-lg"></i>
+    </span>
+  <%}%>
+  <% if(info == "" ||info == null){%>
+      
+     
+    <% }else{%>
+      <span class="info">
+          <p><%= info%> </p> <i   id="removeFlash" class="bi bi-x-lg"></i>
+        </span>
+      
+  <%} %>
+<div class="body-con" style='flex-direction:column;'>
+    <div  class="user-wrapper">
+        <div class="list-header"><h2><%=course.name%></h2> <a href="/admin/create/<%=course._id%>"> <i class="bi bi-plus-square"></i> Add Page</a></div>
+        <% pages.forEach(function(page){ %>
+            <div class="user-card " style="background:#ec639f;" onMouseOver="this.style.background='#ffb644'"  onMouseOut="this.style.background='#ec639f'">
+                <a href=""><%=page.title%></a> <span class=""><a href="/admin/page/delete/<%=course._id%>/<%=page._id%>"><i class="bi bi-trash-fill"></i></a>
+                  <a href="/admin/edit/page/<%=course._id%>/<%=page._id%>"><i class="bi bi-pencil"></i></a>
+                  <a href="/<%=course.slugCourse%>/<%=page.slugtitle%>"><i class="bi bi-eye"></i></a>
+                 
+              </span>
+              </div>
+       <% })%>
+        
+    </div>
+    </div>
+</div>
+
+<%- include('a-footer'); -%>

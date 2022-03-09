@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.user_cont{
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: content;
+    align-items: center;
+}
+.user_img{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: content;
+    align-items: center;
+}
+.user_img button{
+    width: 70px;
+    height: 35px;
+    border: none;
+    background-color:blue;
+    margin: 20px;
+}
+.user_img img {
+    width: 200px;
+    border-radius: 50%;
+}
+.user_info{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: content;
+    align-items: center;
+}

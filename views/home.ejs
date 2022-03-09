@@ -1,0 +1,72 @@
+
+
+<%- include('header'); -%>
+
+<div class="container">
+    <div class="col-1">
+        <div class="line-back"></div>
+        <div class="line-back-1"></div>
+        <div>
+            <h1>We are another <br> Army 🍴</h1>
+            <p>Learn Hotel Courses with HotelStudy.Org</p>
+            <a href="/courses-list/">Get Started ></a>
+        </div>
+    </div>
+    <div class="col-2">
+        <img src="/image/open-doodles-reading-side.svg" alt="home-image">
+    </div>
+</div>
+<div class="container-1">
+    <div class="circle"></div>
+    <div class="circle-1"></div>
+        <div class="col-3">
+            <h1>Read Fully Explaned Tutorials</h1>
+            <p>know about, Food Production, F&B Service,<br> Accounts, etc.</p>
+            <a href="/">Start Learning ></a>
+        </div>
+        <div class="col-4">
+            <img src="/image/learning.svg" alt="learning">
+        </div>
+</div>
+<div class="container-3">
+    <div class="tags">
+        <img src="/image/web content.jpeg" alt="">
+        <h2>Web Content</h2>
+      <p>  Get all Courses of Hotel Management</p>
+    </div>
+    <div class="tags">
+        <img src="/image/news.jpeg" alt="">
+        <h2>Hotel News</h2>
+       <p> Stay Update with the Hotel Letest News</p>
+    </div>
+    <div class="tags">
+        <img src="/image/experts.jpeg" alt="">
+        <h2>Experts</h2>
+       <p> Get Tips and Tricks from Experts</p>
+    </div>
+</div>
+<div class="container-4">
+  <div class="col-5">
+      <h1>Interviews Tricks & Tip</h1>
+      <p>Crack All Companies interview with experience employees</p>
+      <a href="/interview">Crack Today</a>
+  </div>
+  <div class="col-6">
+      <img src="/image/interview.svg" alt="">
+  </div>
+</div>
+<div class="container-5">
+    <div class='tags-2'>
+        <div class="line-back-3"></div>
+        <div class="line-back-4"></div>
+       <% course.forEach(function(courses){ %>
+        <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+     <%  }) %>
+        <br>
+        <a href="">Wines</a>
+        <a href="">Indian Food</a>
+        <a href="">Accounts</a>
+        <a href="">More..</a>
+    </div>
+</div>
+<%- include('footer'); -%>

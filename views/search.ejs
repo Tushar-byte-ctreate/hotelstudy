@@ -1,0 +1,18 @@
+
+<%- include('header'); -%>
+<div class="search-body">
+    <div class="search-result">
+        <div class="search-count">
+            <p>250 search results</p>
+        </div>
+        <hr>
+        <% searchResult.forEach(function(search){ %>
+            <div class="searches">
+                <a href="/<%=search._id%>"><%= search.title%></a>
+                <p><%=search.discription%></p> </p>
+            </div>
+     <%   }) %>
+       
+    </div>
+    </div>
+    <%- include('footer'); -%>

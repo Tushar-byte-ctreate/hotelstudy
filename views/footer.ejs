@@ -1,0 +1,239 @@
+<footer>
+            <div class="footer-logo">
+                <h1>HotelStudy.Org</h1>
+                <p> <i class="fa fa-youtube "><a href="/"></a></i> |<i class="fa fa-facebook "><a href="/"></a></i>|<i class="fa fa-twitter "><a href="/"></a></i>|<i class="fa fa-instagram "><a href="/"></a></i> </p>
+                <span>Made by <del>HS</del> ❤️&⌨️ in India</span>
+                <p>©️ copyright 2022 to HS</p>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <a href="/hs/about">About Us</a>
+                <a href="/hs/contact/us">Content Us</a>
+                <a href="/hs/terms/condition">Terms & Conditions</a>
+                <a href="/hs/privecy-policy">Privacy & Policy</a>
+                <a href="/">terms of use</a>
+                <a href="/disclaimer">Disclaimer</a>
+            </div>
+            <div class="footer-links">
+                <h3>Links</h3>
+                <a href="/interview">Interview</a>
+                <a href="/q-and-a">Q&A</a>
+                <a href="/courses-list/">Courses</a>
+                <a href="">Top Tutorials</a>
+                <a href="">Top Reader</a>
+                <a href="">Top Collages</a>
+            </div>
+        </footer>
+        <script src="" async defer></script>
+        <script type="text/javascript">
+            let responsive = document.querySelector('.navlinks');
+            let toggler = document.querySelector('.toggal');
+            let cancel = document.querySelector('.cut')
+            let search_show = document.querySelector('#search')
+            let search_box = document.querySelector('.search_box')
+           var hideSearch = document.getElementById('hideSearch')
+            toggler.addEventListener('click',()=>{
+                responsive.style.left = 0;
+            })
+            search_show.addEventListener('click',()=>{
+               search_box.style.visibility = 'visible';
+               hideSearch.style.visibility = 'visible';
+            })
+            cancel.addEventListener('click',()=>{
+                responsive.style.left ='-100%';
+            })
+            hideSearch.addEventListener('click',()=>{
+                search_box.style.visibility = 'hidden';
+                hideSearch.style.visibility = 'hidden';
+            })
+        </script>
+         <script src="/socket.io/socket.io.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/zh-tw.min.js"></script>
+         <script type="text/javascript" src="/js/socket_comment.js"  defer></script>
+    <script >
+        var login = document.querySelector('#login');
+        var signin = document.querySelector('#signin');
+        var btns = document.querySelector('.sign');
+        var btnl = document.querySelector('#log');
+
+       btns.addEventListener('click',()=>{
+        login.style.display='none';
+        signin.style.display='block';
+        })
+        btnl.addEventListener('click',()=>{
+        login.style.display='block';
+        signin.style.display='none';
+        })
+    
+    </script>
+    <script>
+            var btn_reply = document.getElementById("btn-reply");
+var form_reply = document.getElementById("form-reply");
+var btn_cancel = document.getElementById("btn-cancel");
+
+var sec_1 = document.querySelector('.sec-1')
+
+
+btn_reply.addEventListener("click", function(){
+    form_reply.style.display="block"
+    btn_reply.style.display="none"
+    btn_cancel.style.display="block"
+})
+btn_cancel.addEventListener("click", function(){
+
+    form_reply.style.display="none"
+    btn_reply.style.display="block"
+    btn_cancel.style.display="none"
+})
+
+    </script>
+    
+    <script>
+var index_btn= document.getElementById("index-come")
+    var index_back = document.getElementById("index-back");
+    index_btn.addEventListener("click", function(){
+        sec_1.style.left=0;
+        index_btn.style.display="none"
+        index_back.style.display="block"
+        });
+        index_back.addEventListener("click",function(){
+            sec_1.style.left='-100%'
+            index_back.style.display="none"
+            index_btn.style.display="block"
+        });
+    </script>
+    <!-- admin js -->
+    <script>
+        var add = document.getElementById('add')
+        var co_form = document.getElementById('co-form')
+        var co_cut = document.getElementById('co-cut')
+       
+
+        add.addEventListener('click', function(){
+            co_form.style.display='block'
+        })
+        co_cut.addEventListener('click', function(){
+            co_form.style.display='none'
+        })
+        
+
+    </script>
+    <script>
+var show = document.getElementById('forgetForm')
+        var hide = document.getElementById('hideForm')
+        var forgetPass = document.getElementById('forgetPass')
+       
+forgetPass.addEventListener('click',function(){
+            show.style.display='block'
+        })
+        hide.addEventListener('click',function(){
+            show.style.display='none'
+        })
+        
+    </script>
+    <script>
+ var userImg = document.getElementById('userImg')
+        var userData = document.getElementById('userData')
+        var close = document.getElementById('close')
+userImg.addEventListener('click',function(){
+            userData.style.display='flex'
+        })
+        close.addEventListener('click',function(){
+            userData.style.display='none'
+        })
+    </script>
+    <!-- flashMessage  -->
+    <script>
+        const errorr = document.querySelector('.error')
+        const info = document.querySelector('.info')
+        const remove = document.getElementById('removeFlash')
+        remove.addEventListener('click',()=>{    
+            info.style.display = 'none'
+        })
+        remove.addEventListener('click',()=>{
+            errorr.style.display = 'none'
+        })
+    </script>
+    <!-- summernote cdn and javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  
+      <script type="text/javascript">
+          var curruntLocalStorage = location.href;
+          const indexA = document.getElementsByClassName('course-link');
+          const courselenth = indexA.length;
+          for(var i =0 ; i< courselenth ; i++){
+              if(indexA[i].href == curruntLocalStorage){
+                  indexA[i].className = 'active'
+              }
+          }
+      </script>
+  
+  <script type="text/javascript">
+
+    var artdel = document.getElementById('art-del');
+    var delcom = document.getElementById('delete-com');
+    var delno = document.getElementById('del-no')
+    artdel.addEventListener('click', ()=>{
+        delcom.style.visibility= "visible"
+    })
+    delno.addEventListener('click', ()=>{
+        delcom.style.visibility = 'hidden'
+    })
+   
+</script>
+    <!-- <script>
+        const form = document.querySelector('.formPost');
+ const pushComment = document.querySelector('#pushComments').innerHTML
+const formEvent = form.addEventListener('submit', event => {
+    event.preventDefault();
+    const postId = document.querySelector('#postId').value;
+    const adminId = document.querySelector('#adminId').value;
+    const comment = document.querySelector('#comment').value;
+    const commentData = {postId, adminId,comment};
+ 
+   async function doComment(form){
+ await axios({
+    url:"/comment",
+    method:'post',
+    data:commentData,
+}).then((responseData)=>{
+   
+    const {comment} = responseData.data;
+ const existingCommentsList = document.getElementById('pushComments').innerHTML;
+ document.getElementById('pushComments').innerHTML = `${existingCommentsList}<li>${comment.comment}</li>`;
+    console.log(responseData.data)
+})
+ }
+ doComment()
+ function nulldata(){  
+    const comment = document.querySelector('#comment').value=''
+ }
+ nulldata()
+}); -->
+
+ 
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('textarea#body').summernote({
+                height: '600px',
+            });
+            
+        });
+       
+        
+
+    </script>
+    
+    <script>
+ $(document).ready(function(){
+    $(document).ready(function(){
+    $("#flashMessage").delay(5000).slideUp(300);
+});
+});
+    </script>
+
+   
+    </body>
+</html>

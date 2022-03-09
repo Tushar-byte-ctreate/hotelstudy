@@ -1,0 +1,38 @@
+
+<%- include('header'); -%>
+  <div class="admin-container">
+    <div class="admin-logo"><h2>Admin : <%=user.name%></h2> <div style='position: relative; right: 100px; z-index: 3;'>  <a href="/create/<%= course._id%>"><i id='add' style="cursor: pointer" class="fas fa-plus"></i></a> </div>  </div>
+   
+    <div class="admin-body">
+<div class="admin-cao">
+<h2><%=course.name%></h2>
+
+</div>
+<div class="admin-com">
+  <% articles.forEach(function(article){ %>
+
+ 
+        <div class="articles">
+            <div class="art-title">
+                <a href="/<%=course.slugCourse%>/<%=article.slugtitle%>"><%=article.title%></a>
+            </div>
+            <div class="art-date"> 
+                <div class="delete-com" id="delete-com">
+                    <i class="far fa-sad-tear fa-5x"></i>
+                    <p>Do you want to delete</p>
+                    <span> <p id='del-no'>No</p> <a href="/delete-article/<%=article._id%>/<%=course._id%>">Yes</a></span>
+                </div>
+                 <p> <a href="/<%=course.slugCourse%>/<%=article.slugtitle%>"><i class="fas fa-eye"></i></a>
+                <a href="/edit/<%=article._id%>/<%=course._id%>"><i class="fas fa-edit"></i> </a> <i id="art-del" class="fas fa-trash"></i></p>
+              
+                <p>  <i class="far fa-clock"></i> 15 Aug 2022</p>
+            </div>
+        </div>
+ 
+  <%  }) %>
+
+</div>
+
+    </div>
+</div>
+<%- include('footer'); -%>
