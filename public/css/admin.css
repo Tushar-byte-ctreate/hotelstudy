@@ -393,3 +393,43 @@ flex-direction:column;
     padding: 10px;
     cursor: pointer;
 }
+/* course edit  */
+#cedit{
+    width:100%;
+    height:100vh;
+    display: flex;
+    
+     justify-content:center;
+     align-items:center;
+}
+#cedit form {
+width:40%;
+height:auto;
+display: flex;
+flex-direction: column;
+justify-content:center;
+align-items:center;
+border: #40348f 1px solid;
+}
+#cedit form input {
+    width: 80%;
+    height: 50px;
+    font-size:18px;
+    margin: 5px 20px;
+    border:none;
+    border-bottom: #40348f 1px solid;
+}
+#cedit form textarea {
+    width: 80%;
+    height: 100px;
+}
+#cedit form button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    background: #40348f;
+    color: #fff;
+    cursor: pointer;
+    margin:10px;
+    
+}

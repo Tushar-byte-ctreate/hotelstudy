@@ -21,10 +21,28 @@ route.get('/admin/users/delete/:id', adminValidate,async(req,res)=>{
         res.redirect('/user/admin')
     }
 })
-route.get('/admin/user/edit/:id',adminValidate,async (req,res)=>{
+route.get('/admin/user/edit/:id',async(req,res)=>{
     const id = req.params.id;
-const  data = {}
-    const user = await User.fonOneAndUpdate({id:id},{$set:{}})
+    const uedit = await User.findById(id)
+    console.log(uedit)
+const uEdit ={
+    _id:uedit._id,
+    admin:uedit.admin,
+    name:uedit.name
+}
+    try{
+        res.render('admin/userEdit',{uEdit:uEdit,user:req.user})
+    } catch(error){
+        req.flash('error',"something went wrong")
+        res.redirect('/user/admin')
+    }
+})
+route.post('/admin/edit/auth/user/:id',adminValidate,async (req,res)=>{
+    const id = req.params.id;
+   
+const  data = req.body
+
+    const user = await User.updateOne({_id:id},{$set:{admin:req.body.admin}})
 
     try {
         req.flash('info',"User data has been updated successfully")

@@ -17,14 +17,13 @@
   <%} %>
 <div class="body-con" style='flex-direction:column;'>
     <div  class="user-wrapper">
-        <h2>User Lists</h2>
+        <h2>Contact</h2> Lists</h2>
 
 
-        <% users.forEach(function(user){ %>
+        <% data.forEach(function(user){ %>
         <div class="user-card ">
-          <a href=""><%=user.name%></a> <span class=""><a href="/admin/users/delete/<%=user._id%>"><i class="bi bi-trash-fill"></i></a>
-            <a href="/admin/user/edit/<%=user._id%>"><i class="bi bi-pencil"></i></a>
-            <a href=""><i class="bi bi-eye"></i></a>
+           
+          <a href=""><%=user.name%></a> <p><%=user.createdAt%></p> <span class=""><a href="/admin/contact/delete/<%=user._id%>"><i class="bi bi-trash-fill"></i></a>
             <a href=""><i class="bi bi-envelope"></i></a>
         </span>
         </div>

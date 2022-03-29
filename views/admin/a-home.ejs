@@ -20,46 +20,32 @@
     <div class="boxes">
         <div class="child-box"> 
             <h3 >Users</h3>
-            <h4>5654</h4>
+            <h4><%=uc%></h4>
           <a href=""> <i class="bi bi-arrow-right-square-fill"></i></a>
        </div>
-        <div class="child-box">box2</div>
-        <div class="child-box">bhi4</div>
-        <div class="child-box">ikjhikh</div>
-        <div class="child-box">bhi4</div>
-        <div class="child-box">ikjhikh</div>
+       <div class="child-box"> 
+        <h3 >Courses</h3>
+        <h4><%=cc%></h4>
+      <a href=""> <i class="bi bi-arrow-right-square-fill"></i></a>
+   </div>
+   <div class="child-box"> 
+    <h3 >Comment</h3>
+    <h4><%=coc%></h4>
+  <a href=""> <i class="bi bi-arrow-right-square-fill"></i></a>
+</div>
+        
     </div>
     <div class="contact">
             <h3>Contact form</h3>
             <div class="list-form">
-                <div class="form-fill">
-                    <h4 style="color:#ec639f;">Tushar</h4>
-                    <p>this is a dashboard project ehis</p>
-                </div>
-                <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
+            <%  contect.forEach(function(cont){%>
               <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
-              <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
-              <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
-              <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
-              <div class="form-fill">
-                  <h4>Tushar</h4>
-                  <p>this is a dashboard project ehis</p>
-              </div>
+                <h4 style="color:#ec639f;" ><%=cont.name%></h4>
+                <p><%=cont.message%></p>
+            </div>
+             <% })%>
+               
+                
             </div>
     </div>
   

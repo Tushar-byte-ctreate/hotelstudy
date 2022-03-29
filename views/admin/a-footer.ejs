@@ -38,7 +38,15 @@ remove.addEventListener('click', () =>{
             });
             var value = $('#value').val()
             $('textarea#body').summernote('pasteHTML', value);
+
+
+            $('textarea#body').summernote({
+  dialogsInBody: true
+});
         });
+        $('#summernote').summernote({
+  dialogsInBody: true
+});
         </script>
 <script>
     const errorr = document.querySelector('.error')

@@ -1,0 +1,15 @@
+
+<%- include('a-header'); -%>
+
+
+ <div id="cedit"class="">
+   <form action="/admin/edit/book/<%=book._id%>" method="post">
+     <h2>Edit Course</h2>
+       <input type="text" name="name" id=""  placeholder="Enter Name " value="<%=book.name%>" required>
+       <input type="text" name="tags" id="" placeholder="Enter tag name" value="<%=book.tags%>" required>
+      <textarea style="height: 100px;" value="<%=book.discription%>" name="discription" id="" cols="30" rows="10" placeholder="Enter description ..." required><%=book.discription%></textarea>
+       <button type="submit">Create</button> 
+   </form>
+</div>
+ </div>
+ <%- include('a-footer'); -%>

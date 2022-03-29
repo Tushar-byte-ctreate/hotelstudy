@@ -6,9 +6,9 @@ const courseSchema = new mongoose.Schema({
         name: {type:String , unique:true},
         discription: String,
         slugCourse:{type:String, unique:true},
+        tags:{type:String},
         admin:{ type: mongoose.Schema.Types.ObjectId,
             ref: 'User'},
-            tags:String,
             articles:[{ 
                 title:{type:String },
                 slugtitle:{type:String},

@@ -1,0 +1,14 @@
+
+<%- include('a-header'); -%>
+
+
+<div id="cedit"class="">
+  <form action="/admin/edit/auth/user/<%=uEdit._id%>" method="post">
+    <h2>Edit User Type</h2>
+      <input type="text" name="name" id=""  placeholder="Enter Name " value="<%=uEdit.name%>" required>
+      <input type="text" name="admin" id="" placeholder="Enter admin type" value="<%=uEdit.admin%>" required>
+      <button type="submit">Edit</button> 
+  </form>
+</div>
+</div>
+<%- include('a-footer'); -%>

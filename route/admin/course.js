@@ -28,6 +28,59 @@ route.get('/delete/admin/:id', adminValidate,async(req,res)=>{
     res.redirect('/course/list/admin')
 }
 })
+route.post('/admin/create/course',adminValidate, async(req,res)=>{
+    const data = req.body
+    console.log(data)
+    await Courses.create(data)
+
+try{
+   req.flash('info',"Book has been Created")
+   res.redirect('/course/list/admin')
+
+} catch(err){
+    req.flash('error',"something went wrong")
+    res.redirect('/course/list/admin')
+ 
+}
+
+})
+// edit the course 
+route.get('/admin/edit/book/:id',adminValidate,async (req,res)=>{
+    const id = req.params.id
+    console.log(id)
+   const book = await Courses.findById({_id:id})
+
+   const data = {
+       _id:book._id,
+       name:book.name,
+       tags:book.tags,
+       discription:book.discription
+   }
+
+  
+    try{
+      res.render("admin/courseEdit",{book :data ,user:req.user})
+     
+     } catch(err){
+         req.flash('error',"something went wrong")
+         res.redirect('/course/list/admin')
+      
+     }
+})
+route.post('/admin/edit/book/:id',adminValidate, async (req,res)=>{
+    const id = req.params.id
+    const data = req.body
+  await Courses.updateOne({_id:id},{$set:{data}})
+  try{
+    req.flash('info',"Book has been updated")
+    res.redirect('/course/list/admin')
+ 
+ } catch(err){
+     req.flash('error',"something went wrong")
+     res.redirect('/course/list/admin')
+  
+ }
+})
 route.get('/admin/course/:id',adminValidate, async (req,res)=>{
     const id = req.params.id
     const course = await Courses.findOne({_id:id}) 
@@ -105,7 +158,6 @@ route.post('/admin/edit/:id',adminValidate, async(req,res)=>{
        slugtitle:slugT,
        date:date
     }
-  
     const courseid = req.body.courseId
     console.log(courseid)
     const query = { _id:courseid, 'articles._id':id}

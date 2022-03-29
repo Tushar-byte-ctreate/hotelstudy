@@ -22,9 +22,9 @@
         <% course.forEach(function(course){ %>
           <div class="user-card " style="background:#ffb644;" onMouseOver="this.style.background='#ec639f'"  onMouseOut="this.style.background='#ffb644'">
             <a href="/admin/course/<%=course._id%>"><%=course.name%></a> <span class=""><a href="/delete/admin/<%=course._id%>"><i class="bi bi-trash-fill"></i></a>
-              <i id="edit-cousre" class="bi bi-pencil"></i>
+              <a href="/admin/edit/book/<%=course._id%>" > <i id="edit-cousre" class="bi bi-pencil"></i></a>
               <a href=""><i class="bi bi-eye"></i></a>
-              <a href=""><i class="bi bi-envelope"></i></a>
+              
           </span>
           </div>
         
@@ -35,7 +35,7 @@
 
     </div>
     <div class="add-form">
-      <form action="/create/course" method="post">
+      <form action="/admin/create/course" method="post">
         <h2>Create New Course</h2>
           <input type="text" name="name" id=""  placeholder="Enter Name " required>
           <input type="text" name="tags" id="" placeholder="Enter tag name" required>
