@@ -47,8 +47,9 @@
             <div class="logo">
                 <h2> <a style="text-decoration:none; color:#000;" href="/"> HotelStudy.Org</a> </h2>
             </div>
-           <div id='search'> <i  class="fas fa-search fa-2x"></i></div>
-          
+            <div>
+           <div id='search'> <i  class="fas fa-search fa-2x"></i></div><div class="hide-search" ><i class="fas fa-times fa-2x"></i></div>
+        </div>
             <ul class="navlinks">
                
                 <li><a href="/">Home</a></li>
@@ -65,11 +66,14 @@
                     <%}%>
             
             </ul>
+
         <div class="search_box">
-            <form action="/query/" method="put">
+            <form action="/search/post/query/" method="get">
                <input type='search' name="search_type" placeholder="Type to search" />
-               <button type="submit"><i  class="fas fa-search fa-2x"></i></button>
+               <button id="show-search" type="submit"><i  class="fas fa-search fa-2x"></i></button>
+               
             </form>
+           
             <span>
                 <% if (locals.session.loggedin){ %>
                     <div class="userPro">

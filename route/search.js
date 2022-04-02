@@ -15,18 +15,47 @@ route.get('/query/',async (req,res) => {
         name :''
     }
     
-    const article= await Course.find({})
-   console.log(article.articles )
+    const article= await Course.find({
+        articles: {
+          $elemMatch: {
+            title: {
+              $regex: query,
+              $options: "i"
+            }
+          }
+        }
+      },
+      {
+        articles: {
+          $filter: {
+            input: "$articles",
+            cond: {
+              $regexMatch: {
+                input: "$$this.title",
+                regex: query,
+                options: "i"
+              }
+            }
+          }
+        }})
     
+ 
+if (article === undefined || article.length === 0) {
 
-  const search =   article.find((value)=>{
-         return value.articles.title === query
-    })
+  res.render('search',{searchResult:[],user:user,title:"search",description:""})
+}else{
+
+
+  const search =   article.forEach(function(article) {
+
+     const data =  article.articles
+     console.log(data); 
+     res.render('search',{searchResult:data,user:user,title:"search",description:""})
+  })
+}
+
+    // if(!search) return res.render('search',{user:user,title:"search",description:""})
    
-  
-    console.log(search)
-    if(!result) return res.render('search',{user:user})
-    res.render('search',{searchResult:result,user:user})
 })
 route.get('/:id',async(req, res) => {
     // const id = req.params.id

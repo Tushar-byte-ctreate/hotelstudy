@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const session = require('express-session');  // session middleware
 const passport = require('passport');  // authentication
 var flash = require('connect-flash');
-mongoose.connect('mongodb+srv://admin_tushar:Tushar-8171@cluster0.9uywv.mongodb.net/Blogweb', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{ console.log('db connected')}).catch(err => console.log(err))
+mongoose.connect('mongodb+srv://admin_tushar:'+ process.env.PASS_WORD+'@cluster0.9uywv.mongodb.net/Blogweb', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{ console.log('db connected')}).catch(err => console.log(err))
 const Course = require('./modules/course')
 const home = require('./route/home')
 const user = require('./route/user')  
@@ -48,12 +48,14 @@ app.use("/hs",company)
 app.use(user);
 app.use(Admin)
 app.use(CourseArticles)
-app.use(search)
+app.use('/search/post/', search)
 
 app.use(comments)
 
 
-
+app.use((req, res,next)=>{
+  res.render('user/404',{title:"404",description:"404",user:req.user});
+});
 
 
 

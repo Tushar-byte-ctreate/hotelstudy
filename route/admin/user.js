@@ -5,9 +5,17 @@ const adminValidate = require('../middel');
 
 route.get('/user/admin',adminValidate, async(req,res)=>{
 
-     const users = await User.find({})
+    const user_name = req.user.username 
+    if(user_name == "thisistusharkumar@gmail.com"){
+        const users = await User.find({})
 
-    res.render('admin/a-users',{users:users,error:req.flash('error'),info:req.flash('info')})
+        res.render('admin/a-users',{users:users,error:req.flash('error'),info:req.flash('info')})
+    }else{
+        
+
+    res.render('admin/a-users',{users:[],error:req.flash('error'),info:req.flash('info')})
+    }
+     
 })
 route.get('/admin/users/delete/:id', adminValidate,async(req,res)=>{
 

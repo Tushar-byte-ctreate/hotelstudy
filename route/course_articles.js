@@ -70,4 +70,10 @@ const title = article.title || HotelStudy
     }
 })
 
+route.get('/search/data/:id',(req,res)=>{
+    const id = req.body.params
+    console.log(id)
+    const data = Course.find({'_id':{$elemMatch:{$elemMatch:{$in:[id]}}}})
+      console.log(data)
+})
 module.exports = route

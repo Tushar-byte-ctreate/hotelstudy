@@ -6,13 +6,20 @@
             <p>250 search results</p>
         </div>
         <hr>
+      <% if(searchResult == null || searchResult.length == 0){  %>
+           <div class="search-404">
+               <img class="404" width="60%" height=""src="/image/404.svg" alt="404">
+           </div>
+      <% }else{ %>
+
+       
         <% searchResult.forEach(function(search){ %>
             <div class="searches">
-                <a href="/<%=search._id%>"><%= search.title%></a>
+                <a href="/search/data/<%=search._id%>"><%= search.title%></a>
                 <p><%=search.discription%></p> </p>
             </div>
      <%   }) %>
-       
+      <%  } %>
     </div>
     </div>
     <%- include('footer'); -%>

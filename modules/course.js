@@ -10,7 +10,7 @@ const courseSchema = new mongoose.Schema({
         admin:{ type: mongoose.Schema.Types.ObjectId,
             ref: 'User'},
             articles:[{ 
-                title:{type:String },
+                title:{type:String , default:"one"},
                 slugtitle:{type:String},
                 content:{type:String},
                 discription:{type:String},

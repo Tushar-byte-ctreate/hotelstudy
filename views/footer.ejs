@@ -29,6 +29,7 @@
             let responsive = document.querySelector('.navlinks');
             let toggler = document.querySelector('.toggal');
             let cancel = document.querySelector('.cut')
+            let hideBar = document.querySelector('.hide-search')
             let search_show = document.querySelector('#search')
             let search_box = document.querySelector('.search_box')
            var hideSearch = document.getElementById('hideSearch')
@@ -37,14 +38,17 @@
             })
             search_show.addEventListener('click',()=>{
                search_box.style.visibility = 'visible';
-               hideSearch.style.visibility = 'visible';
+               
+               hideBar.style.display = 'block';
+               search_show.style.display = 'none';
             })
             cancel.addEventListener('click',()=>{
                 responsive.style.left ='-100%';
             })
-            hideSearch.addEventListener('click',()=>{
+            hideBar.addEventListener('click',()=>{
                 search_box.style.visibility = 'hidden';
-                hideSearch.style.visibility = 'hidden';
+                hideBar.style.display = 'none';
+                search_show.style.display = 'block';
             })
         </script>
          <script src="/socket.io/socket.io.js"></script>

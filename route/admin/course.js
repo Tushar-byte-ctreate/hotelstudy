@@ -7,7 +7,9 @@ const adminValidate = require('../middel');
 
 route.get('/course/list/admin',adminValidate,(req,res)=>{
     console.log(req.user)
-    Courses.find({}).then((course)=>{
+    const user = req.user._id
+
+    Courses.find({ admin:user}).then((course)=>{
      
         res.render('admin/a-course',{course:course,user:req.user,title:"Admin",description:"",error:req.flash('error'),info:req.flash('info')})
     }).catch((err)=>{
@@ -29,8 +31,17 @@ route.get('/delete/admin/:id', adminValidate,async(req,res)=>{
 }
 })
 route.post('/admin/create/course',adminValidate, async(req,res)=>{
-    const data = req.body
-    console.log(data)
+   
+    const user = req.user._id
+  
+    const data = {
+        name:req.body.name,
+        tags:req.body.tags,
+        admin:user,
+        discription:req.body.discription
+    }
+ 
+    console.log(data,{admin:user})
     await Courses.create(data)
 
 try{

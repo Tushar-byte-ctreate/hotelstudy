@@ -19,16 +19,20 @@
     <div  class="user-wrapper">
         <h2>User Lists</h2>
 
-
-        <% users.forEach(function(user){ %>
-        <div class="user-card ">
-          <a href=""><%=user.name%></a> <span class=""><a href="/admin/users/delete/<%=user._id%>"><i class="bi bi-trash-fill"></i></a>
-            <a href="/admin/user/edit/<%=user._id%>"><i class="bi bi-pencil"></i></a>
-            <a href=""><i class="bi bi-eye"></i></a>
-            <a href=""><i class="bi bi-envelope"></i></a>
-        </span>
-        </div>
-        <%})%>
+<% if(users == null || users.length == 0){ %>
+  <h3>Please contact to Mr. Tushar for more information</h3>
+<% }else{ %>
+  <% users.forEach(function(user){ %>
+    <div class="user-card ">
+      <a href=""><%=user.name%></a> <span class=""><a href="/admin/users/delete/<%=user._id%>"><i class="bi bi-trash-fill"></i></a>
+        <a href="/admin/user/edit/<%=user._id%>"><i class="bi bi-pencil"></i></a>
+        <a href=""><i class="bi bi-eye"></i></a>
+        <a href=""><i class="bi bi-envelope"></i></a>
+    </span>
+    </div>
+    <%})%>
+<% } %>
+        
         
 
     </div>
