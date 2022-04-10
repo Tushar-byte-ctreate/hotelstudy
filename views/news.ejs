@@ -1,0 +1,52 @@
+<%- include('header'); -%>
+<%- include('newsNav'); -%>
+<div class="newshome">
+<div class="popular">
+    <h3>Popular Poster</h3>
+    <div class="pdata">
+        <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+        <a href=""> Shyam kumar</a>
+    </div><div class="pdata">
+        <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+        <a href=""> Shyam kumar</a>
+    </div><div class="pdata">
+        <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+        <a href=""> Shyam kumar</a>
+    </div><div class="pdata">
+        <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+        <a href=""> Shyam kumar</a>
+    </div><div class="pdata">
+        <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+        <a href=""> Shyam kumar</a>
+    </div>
+</div>
+<div class="newsBox">
+    <div class ='linktocreate'>
+        <a href="/create/news"> <i class="bi bi-plus-square-dotted"></i></a>
+    </div>
+  <%  news.forEach(function(news){ %>
+        <div class="posts">
+            <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4><%=news.username%></h4> <span><i class="bi bi-clock"></i> <%=news.date%></span></div>
+            <hr>
+            <div class="posttm"> <h3><%=news.title%></h3> <img src="data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%>" alt=""></div>
+           
+            
+            <div class="readnshare">
+                <a id="rm" href="/news/<%=news.slugTitle%>">Read More</a><a id="shareb"  href=""><i class="bi bi-share"></i></a>
+            </div>
+        </div>
+ <%   })%>
+  
+
+</div>
+<div class="newsAd">
+    <img style="margin-top: 10px;" src="https://t3.ftcdn.net/jpg/00/60/63/02/360_F_60630275_kZmY9bunXX0ZLhvLyoKIDhI1N4aYv3JW.jpg" alt="">
+</div>
+</div>
+
+
+
+
+
+
+<%- include('footer'); -%>

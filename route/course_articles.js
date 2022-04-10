@@ -6,8 +6,28 @@ const Comment = require('../modules/comment')
 const User = require('../modules/user')
 
 
-route.get('/courses-list/',(req,res)=>{
-    res.render('course_list',{title:'courses',description:"All courses of HotelStudy"})
+route.get('/courses-list/', async(req,res)=>{
+    const course = await Course.find({})
+
+    const fnb = course.filter((value)=>{
+        return value.tags == "F and B"
+    })
+    const hk = course.filter((value)=>{
+        return value.tags == "hk"
+    })||""
+    const fo = course.filter((value)=>{
+        return value.tags == "fo"
+    }) ||""
+
+    const fp = course.filter((value)=>{
+        return value.tags == "fp"
+    })||""
+    const un = course.filter((value)=>{
+        return value.tags == "univers"
+    })||""
+    console.log(fnb)
+
+    res.render('course_list',{title:'courses',fnb:fnb,hk:hk,fo:fo,univers:un,fp:fp ,description:"All courses of HotelStudy"})
 })
 
 

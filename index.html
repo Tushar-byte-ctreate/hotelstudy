@@ -15,21 +15,72 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
     </head>
     <body>
-    <div class="user_cont">
-<div class="user_img">
-    <img src="https://th.bing.com/th/id/OIP.1GsUsQw5KSrgVNyJPkFNngHaEo?pid=ImgDet&rs=1" alt="">
-   <button id="images_change">Change image </button>
-</div>
-<div class="user_info">
-    <h5>Tushar kUmar</h5>
-<button>Change name</button>
-</div>
-    </div>
-        <script src="" async defer></script>
-        <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <nav><div class="toggal"><i class="bi bi-list"></i></div>
+            <i id="hidemenu" class="bi bi-x-lg"></i>
+            <h2 class=" m-3"> <i class="bi bi-newspaper"></i> HotelStudy News </h2>
+            <i id="searchicon"  class="bi bi-search-heart"></i>
+            <i id="hidesearch" class="bi bi-x-lg"></i>
+            <ul class="ulNews">
+                <li ><a href="/">Home</a></li><li><a href="/">HotelStudy</a></li><li><a href="/">Contact Us</a></li>
+            </ul>
+            <div class="searchForm">
+                <form action="/search">
+                    <input type="search" name="" id="" placeholder="Enter search term">
+                    <button type="submit"><i class="ni bi-search"></i></button>
+                </form>
+              
+                <!-- <img id='userImg' style="cursor: pointer" width="30px" src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> -->
+            </div>
+            <span class="loginSpan"><a id="loginbtn" href="">Login</a></span>
+            <div id='userData' class="userdata">
+                <a href="/user/profile/<%=user._id%>">Profile</a>
+                <a href="">Settings</a>
+                <a href="/logout">Logout</a>
+                <i id='close' style="cursor: pointer" class="bi bi-caret-up-fill"></i>
+            </div>
+        </nav>
+   <div class="postContainer">
+       <form action="">
+           <h4>Post Article</h4>
+           <input type="text" name="title" id="" placeholder="Title">
+           <input type="text" name="discription" id="" placeholder="Discription">
+           <input type="file" name="image" id="" placeholder="Upload image">
+          
+           <button type="submit">Submit</button>
+       </form>
+   </div>
+    <script>
+        const menu = document.querySelector('.toggal')
+        const list = document.querySelector('.ulNews')
+        const hidemenu = document.querySelector('#hidemenu')
+        const showSearch = document.querySelector('#searchicon')
+        const hidebar = document.querySelector('#hidesearch')
+        const searchBar = document.querySelector('.searchForm')
+
+        menu.addEventListener('click',()=>{
+            list.style.left = '0px'
+            menu.style.display = 'none'
+            hidemenu.style.display = 'block'
+        })
+        hidemenu.addEventListener('click',()=>{
+            list.style.left = '-100%'
+            hidemenu.style.display = 'none'
+            menu.style.display = 'block'
+        })
+        showSearch.addEventListener('click',()=>{
+            searchBar.style.left = '20px'
+            hidebar.style.display='block'
+            showSearch.style.display = 'none'
+        })
+        hidebar.addEventListener('click',()=>{
+            searchBar.style.left = '-100%'
+            hidebar.style.display='none'
+            showSearch.style.display = 'block'
+        })
+    </script>
     </body>
 </html>

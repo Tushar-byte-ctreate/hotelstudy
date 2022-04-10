@@ -3,18 +3,30 @@ const Company = require('../../modules/hs')
 var slugify = require('slugify')
 const adminValidate = require('../middel');
 
-route.get('/admin/company/hs/',adminValidate,async (req,res)=>{
+function validation(req,res,next) {
+    const user_name = req.user.username 
+   
+    if(user_name == "thisistusharkumar@gmail.com"){
+        next();
+    }else{
+        req.flash('error',"Please contact to Mr, Tushar for more information")
+        res.redirect('/admin-home')
+    }
+    
+}
+
+route.get('/admin/company/hs/',validation,adminValidate,async (req,res)=>{
 
     const pages = await Company.find({})
-    
+
     res.render('admin/company',{pages:pages,error:req.flash('error'),info:req.flash('info')})
 
 })
-route.get('/admin/create/company/page',adminValidate,(req,res)=>{
+route.get('/admin/create/company/page',validation,adminValidate,(req,res)=>{
 
     res.render('admin/a-create',{id:"",data:"ghfH52gj63"})
 })
-route.post('/admin/create/article/:data',adminValidate,async (req,res)=>{
+route.post('/admin/create/article/:data',validation,adminValidate,async (req,res)=>{
    
    const slug = slugify(req.body.title, { replacement: '-',strict: true, lower:true })
    console.log(req.body)
@@ -31,7 +43,7 @@ route.post('/admin/create/article/:data',adminValidate,async (req,res)=>{
     req.flash("error",error.message), console.log(err),res.redirect('/admin/company/hs/')
    }
 })
-route.get('/admin/company/pages/delete/:id',adminValidate,async(req,res)=>{
+route.get('/admin/company/pages/delete/:id',validation,adminValidate,async(req,res)=>{
     const id = req.params.id
     const DataDeleting = await Company.findOneAndDelete({_id:id})
     try{
@@ -42,7 +54,7 @@ route.get('/admin/company/pages/delete/:id',adminValidate,async(req,res)=>{
         res.redirect("/admin/company/hs/")
     }
 })
-route.get('/admin/company/page/edit/:id',adminValidate,async(req,res)=>{
+route.get('/admin/company/page/edit/:id',validation,adminValidate,async(req,res)=>{
     const id = req.params.id
 
     const data = await Company.findOne({_id: id})
@@ -50,7 +62,7 @@ console.log(data)
     res.render('admin/a-edit',{cid:"",page:data,dummy:"kjde4554fdsf5d"})
 })
 
-route.post('/admin/edit/:id/:cid',adminValidate, async(req,res)=>{
+route.post('/admin/edit/:id/:cid',validation,adminValidate, async(req,res)=>{
     const id = req.params.id
     const slug = slugify(req.body.title, { replacement: '-',strict: true, lower:true })
     const data ={

@@ -1,0 +1,61 @@
+<%- include('header'); -%>
+<%- include('newsNav'); -%>
+<div class="newshome">
+    <div class="popular">
+        <h3>Popular Poster</h3>
+        <div class="pdata">
+            <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+            <a href=""> Shyam kumar</a>
+        </div><div class="pdata">
+            <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+            <a href=""> Shyam kumar</a>
+        </div><div class="pdata">
+            <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+            <a href=""> Shyam kumar</a>
+        </div><div class="pdata">
+            <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+            <a href=""> Shyam kumar</a>
+        </div><div class="pdata">
+            <img  style="cursor: pointer"  src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt="">
+            <a href=""> Shyam kumar</a>
+        </div>
+    </div>
+    <div class="readNews">
+        <div class="newsRender">
+            <h2><%=news.title%></h2>
+            <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4><%=news.username%></h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
+            <div class="postimg">
+                <img src="data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%>" alt="">
+            </div>
+            <div class="postCont">
+                <div class="divcon"><%-news.content%></div>
+            </div>
+            <h3 id="readmore">Read More</h3>
+            <div class="posts">
+                <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4>LTH Delhi</h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
+                <hr>
+                <div class="posttm"> <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem hjh jhhm jhh jhhn hio Ipsam, magnam.</h3> <img src="https://th.bing.com/th/id/OIP.w112bg3VrzMncGBvwyNvjwHaE7?pid=ImgDet&rs=1" alt=""></div>
+               
+                
+                <div class="readnshare">
+                    <a id="rm" href="/">Read More</a><a id="shareb"  href=""><i class="bi bi-share"></i></a>
+                </div>
+            </div>
+            <div class="posts">
+                <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4>LTH Delhi</h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
+                <hr>
+                <div class="posttm"> <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem hjh jhhm jhh jhhn hio Ipsam, magnam.</h3> <img src="https://th.bing.com/th/id/OIP.w112bg3VrzMncGBvwyNvjwHaE7?pid=ImgDet&rs=1" alt=""></div>
+               
+                
+                <div class="readnshare">
+                    <a id="rm" href="/">Read More</a><a id="shareb"  href=""><i class="bi bi-share"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<%- include('footer'); -%>

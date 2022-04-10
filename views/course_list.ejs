@@ -1,119 +1,76 @@
 <%- include('header'); -%>
-<div class="courses-cont">
-<div class="fnb">
-    <h3>Food Production</h3>
-    <div class="list_icon"><div class="co_s">
-        <a href=""> <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p></a>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
+<%- include('hsNav'); -%>
+<div  class=container-5">
+    <h3 style="padding: 10px; margin:0 10px">Food and Beverage Service </h3>
+    <div class='tags-2'>
+        <div class="line-back-3"></div>
+        <div class="line-back-4"></div>
+     
+       <% fnb.forEach(function(courses){ %>
+        <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+     <%  }) %>
+        <br>
+        <a href="">Wines</a>
+        <a href="">Indian Food</a>
+        <a href="">Accounts</a>
+        <a href="">More..</a>
+    </div></div><div class=container-5">
+        <h3 style="padding: 10px; margin:0 10px">Food Production</h3>
+    <div class='tags-2'>
+       
+     
+       <% fp.forEach(function(courses){ %>
+        <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+     <%  }) %>
+        <br>
+        <a href="">Wines</a>
+        <a href="">Indian Food</a>
+        <a href="">Accounts</a>
+        <a href="">More..</a>
     </div>
 </div>
-    
-    
-    
-</div>
-<div class="fnb">
-    <h3>Food Production</h3>
-    <div class="list_icon"><div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-    <div class="co_s">
-        <img src="https://th.bing.com/th/id/OIP.JRNaobFVu_9XUV2WCpaQaQHaFj?pid=ImgDet&rs=1" alt="">
-        <p>Food @ AL</p>
-    </div>
-</div>
-</div>
-</div>
+<div  class=container-5">
+    <h3 style="padding: 10px; margin:0 10px">Front Office </h3>
+    <div class='tags-2'>
+        <div class="line-back-3"></div>
+        <div style="background:#ffb644;" class="line-back-4"></div>
+     
+       <% fo.forEach(function(courses){ %>
+        <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+     <%  }) %>
+        <br>
+        <a href="">Wines</a>
+        <a href="">Indian Food</a>
+        <a href="">Accounts</a>
+        <a href="">More..</a>
+    </div></div>
+    <div  class=container-5">
+        <h3 style="padding: 10px; margin:0 10px">House Keeping </h3>
+        <div class='tags-2'>
+            
+         
+           <% hk.forEach(function(courses){ %>
+            <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+         <%  }) %>
+            <br>
+            <a href="">Wines</a>
+            <a href="">Indian Food</a>
+            <a href="">Accounts</a>
+            <a href="">More..</a>
+        </div></div>
+        <div  class=container-5">
+            <h3 style="padding: 10px; margin:0 10px">All Rounder </h3>
+            <div class='tags-2'>
+                <div class="line-back-3"></div>
+                <div class="line-back-4"></div>
+             
+               <% univers.forEach(function(courses){ %>
+                <a href="/<%= courses.slugCourse %>"><%= courses.name %></a>
+             <%  }) %>
+                <br>
+                <a href="">Wines</a>
+                <a href="">Indian Food</a>
+                <a href="">Accounts</a>
+                <a href="">More..</a>
+            </div></div>
 <%- include('footer'); -%>

@@ -51,6 +51,19 @@
                 search_show.style.display = 'block';
             })
         </script>
+      <!--  user edit -->
+        <script>
+            const edit = document.querySelector('#Uedit')
+const uForm = document.querySelector('.editForm')
+const cancelForm = document.querySelector('#cancelForm')
+
+edit.addEventListener('click',()=>{
+uForm.style.display = 'block'
+})
+cancelForm.addEventListener('click',()=>{
+    uForm.style.display = 'none'
+})
+        </script>
          <script src="/socket.io/socket.io.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/zh-tw.min.js"></script>
          <script type="text/javascript" src="/js/socket_comment.js"  defer></script>
@@ -69,6 +82,18 @@
         signin.style.display='none';
         })
     
+    </script>
+    <script>
+        const draft = document.querySelector('#btn-post')
+        const published = document.querySelector('#public')
+        const typeInput = document.querySelector('#type-input')
+
+        draft.addEventListener('click', () =>{
+            typeInput.value = "draft"
+        })
+        published.addEventListener('click',()=>{
+            typeInput.value = "public"
+        })
     </script>
     <script>
             var btn_reply = document.getElementById("btn-reply");
@@ -134,6 +159,35 @@ forgetPass.addEventListener('click',function(){
             show.style.display='none'
         })
         
+    </script>
+    <script>
+        const menu = document.querySelector('.toggale')
+        const list = document.querySelector('.ulNews')
+        const hidemenu = document.querySelector('#hidemenu')
+        const showSearch = document.querySelector('#searchicon')
+        const hidebar = document.querySelector('#hidesearch')
+        const searchBar = document.querySelector('.searchForm')
+
+        menu.addEventListener('click',()=>{
+            list.style.left = '0px'
+            menu.style.display = 'none'
+            hidemenu.style.display = 'block'
+        })
+        hidemenu.addEventListener('click',()=>{
+            list.style.left = '-100%'
+            hidemenu.style.display = 'none'
+            menu.style.display = 'block'
+        })
+        showSearch.addEventListener('click',()=>{
+            searchBar.style.left = '20px'
+            hidebar.style.display='block'
+            showSearch.style.display = 'none'
+        })
+        hidebar.addEventListener('click',()=>{
+            searchBar.style.left = '-100%'
+            hidebar.style.display='none'
+            showSearch.style.display = 'block'
+        })
     </script>
     <script>
  var userImg = document.getElementById('userImg')

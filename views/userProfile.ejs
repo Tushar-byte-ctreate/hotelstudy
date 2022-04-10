@@ -1,5 +1,23 @@
 
 <%- include('header'); -%>
+<%- include('hsNav'); -%>
+
+<% if(error == "" || error == null ){%>
+
+    <%}else{%>
+      <span class="error">
+        <p><%=error%></p> <i id="removeFlash" class="fas fa-times"></i>
+      </span>
+    <%}%>
+    <% if(info == "" ||info == null){%>
+        
+       
+      <% }else{%>
+        <span class="info">
+            <p><%= info%> </p> <i   id="removeFlash" class="fas fa-times"></i>
+          </span>
+        
+    <%} %>
 <div class="profilecontainer">
     <div class="userinformation">
         <div class="userimage">
@@ -7,15 +25,23 @@
         </div>
         
         <div class="userother">
-            <i class="fa fa-edit"></i>
+            <i id="Uedit" style="cursor: pointer; margin-left: 10px;" class="fa fa-edit"></i>
             <h3><%=user.name%></h3>
             <hr>
-            <h4><%user.username%></h4>
+            <h4><%=user.username%></h4>
             <hr>
             <h4>You are with us since <%user.createdAt%></h4>
             <hr>
         </div>
         <div class="userposition">
+        </div>
+        <div class="editForm">
+            
+            <form action="/user/profile/edit/<%=user._id%>" method="post">
+                <h3>Edit Your Name</h3>
+                <input type="text" name="name" id="" placeholder="Name">
+              <span><button type="submit">Save</button> <span id="cancelForm" style="color: black ; padding: 5px 10px; border: 1px solid #40348f;cursor: pointer;" >Cancel</span></span>  
+            </form>
         </div>
     </div>
     <hr>

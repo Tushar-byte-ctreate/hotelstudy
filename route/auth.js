@@ -70,8 +70,12 @@ const transporter = nodemailer.createTransport({
 
 route.post("/sign-up/user", (req, res) => {
 
+
+ const token = crypto.randomBytes(20).toString('hex')
+
+  console.log(token)
     console.log(req.body)
-    User.register({username:req.body.username, name:req.body.name}, req.body.password, function(err, user){
+    User.register({username:req.body.username, type:req.body.type, name:req.body.name ,token:token, tokenExpires:Date.now() + 3600000}, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
             console.log(err)
@@ -79,22 +83,60 @@ route.post("/sign-up/user", (req, res) => {
         passport.authenticate("local")(req, res, function(info){
           console.log(info)
           req.logout();
-          req.flash("info", "Success "  + user.name +" Please login")
+
+          var mailOptions = {
+            to: user.username,
+            from: '"HotelStudy" <hotelstudy.noreply>',
+            subject: 'Email Vaerify',
+            text: 'You are receiving this because you (or someone else) have requested the create  account on HotelStudy.\n\n' +
+              'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+              'https://' + req.headers.host + '/user/Verify/' + token + '\n\n' +
+              'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+          };
+          transporter.sendMail(mailOptions, function(err) {
+            console.log('email')
+            console.log(err, 'done');
+          });
+
+          req.flash("info", "We sent an email to you, please verify your email address"  + user.name +" ")
           res.redirect('/login/auth-user')
         });
     });
    
   });
+  route.get('/user/verify/:token',async (req, res)=>{
+    const token = req.params.token;
+
+    const user = await User.findOneAndUpdate({ token: req.params.token} , {$set:{verify:'true'}})
+    console.log(user)
+
+    if(!user) {
+     
+      res.render('verify',{title:"verify",description:"" ,done:'error'})
+    } else {
+      res.render('verify',{title:"verify",description:"",done:"123"})
+     
+    }
+  })
   route.post("/login/user",async (req,res)=>{
   
 const user = await User.findOne({username:req.body.username});
 console.log(user)
 
-if(!user) {
+if(!user  ) {
+
   req.flash('error','Username or Password invalid ')
-   res.redirect('/login/auth-user')
+    res.redirect('/login/auth-user')
+
+}else{
+  if(user.verify === false)
+  {
+    req.flash('error','Please Verify your email first ')
+    res.redirect('/login/auth-user')
+  }
+  
    
-}else {
+else {
 
       req.session.loggedin = true 
       const user= new User({
@@ -121,12 +163,12 @@ if(!user) {
   }
   )
   
-} 
+} }
 })
 route.get('/logout' ,(req,res)=>{
   req.session.destroy()
   req.logout();
-  req.logout();
+
 res.redirect(req.header('Referer') || '/');
 if (req.session.returnTo) {
   delete req.session.returnTo
@@ -153,8 +195,8 @@ route.post('/forgot/password/',  (req,res)=>{
               return res.redirect('/login/auth-user/');
             }
     
-            user.resetPasswordToken = token;
-            user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+            user.token = token;
+            user.tokenExpires = Date.now() + 3600000; // 1 hour
     
             user.save(function(err) {
               done(err, token, user);
@@ -165,11 +207,11 @@ route.post('/forgot/password/',  (req,res)=>{
         console.log(user +"one")
         var mailOptions = {
           to: user.username,
-          from: 'HotelStudy@demo.com',
+          from: '"HotelStudy" <hotelstudy.noreply>',
           subject: 'Password Reset',
           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-            'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+            'https://' + req.headers.host + '/reset/' + token + '\n\n' +
             'If you did not request this, please ignore this email and your password will remain unchanged.\n'
         };
         transporter.sendMail(mailOptions, function(err) {
@@ -227,7 +269,7 @@ if(!req.body.password == req.body.rePassword ){
        
        var mailOptions = {
         to: user.username,
-        from: 'passwordreset@demo.com',
+        from: '"HotelStudy" <hotelstudy.noreply>',
         subject: 'Your password has been changed',
         text: 'Hello,\n\n' +
           'This is a confirmation that the password for your account ' + user.username + ' has just been changed.\n'

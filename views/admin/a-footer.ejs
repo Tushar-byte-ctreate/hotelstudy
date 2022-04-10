@@ -15,6 +15,17 @@ removeForm.addEventListener('click', () =>{
     form.style.display = 'none'
 });
 </script>
+<script>
+    var userImg = document.getElementById('userImg')
+           var userData = document.getElementById('userData')
+           var close = document.getElementById('close')
+   userImg.addEventListener('click',function(){
+               userData.style.display='flex'
+           })
+           close.addEventListener('click',function(){
+               userData.style.display='none'
+           })
+       </script>
 <!-- <script> 
  const editform = document.querySelector('#edit-form');
 const remove = document.querySelector('#btn-cancel');

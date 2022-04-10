@@ -23,7 +23,7 @@ route.get('/hs/about',(req,res)=>{
 })
 route.get('/contact/us',(req,res)=>{
     const title = "contact" || "HotelStudy"
-    res.render('contactus',{title : title,description:"", message:req.flash('info')})
+    res.render('contactus',{title : title,description:"",user:req.user, message:req.flash('info')})
 })
 route.get('/terms/condition',(req,res)=>{
   const title = "contact" || "HotelStudy"
@@ -39,7 +39,7 @@ route.post('/contect/us', async(req,res)=>{
     const saveData =  await Contect.create(data);
     var mailOptions = {
       to: req.body.email,
-      from: 'passwordreset@demo.com',
+      from: '"HotelStudy"<hotelstudy.noreply>',
       subject: 'Contect US',
       text: 'Hi '+req.body.name +' ,\n\n' +
         ' Thanks! for contect us. We will contact to you soon..\n\n'+

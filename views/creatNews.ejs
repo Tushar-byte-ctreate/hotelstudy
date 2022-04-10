@@ -1,0 +1,23 @@
+
+<%- include('header'); -%>
+<%- include('newsNav'); -%>
+
+<div class="postContainer">
+    
+
+<form action="/create/news/post" method='post' enctype="multipart/form-data">
+    <h4>Post Article</h4>
+  <input type="text" name="title" id="" placeholder="Enter Title"/>
+  <input  type="text" name="discription" id="dics" placeholder="Enter Description"/>
+  <input type="file" name="image" id="" placeholder="upload image here">
+  <input type="hidden" name="Uid" value="<%=user._id%>" >
+  <input type="hidden" name="uName" value="<%=user.name%>" >
+<input type="hidden" id="type-input" name="type">
+  
+  <textarea name='content' id="body" rows="10" ></textarea>
+  <span id="create-btn"><button id='btn-post' type="submit">Save as Draft</button> <button style="background:#ec639f;" id="public"  type="submit">Public</button></span>
+  
+</form>
+</div>
+
+<%- include('footer'); -%>

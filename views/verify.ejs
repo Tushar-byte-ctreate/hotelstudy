@@ -1,0 +1,15 @@
+<%- include('header'); -%>
+<div class="verify">
+<%if(done === "error" ){%>
+    <img src="https://th.bing.com/th/id/R.fb8a223a167af1a7bd63edc6a450ee9b?rik=%2fuGL4HhQu9vuTg&riu=http%3a%2f%2f1.bp.blogspot.com%2f-2AKHWWR5pcw%2fUEQ3PyvkZtI%2fAAAAAAAACNo%2f9Dp3HmSiiMw%2fs1600%2fSorry_hd_new_cards.JPG&ehk=01k11xZUCrTa8aQvhStafU5o6sH5i75E%2b8JplmX5xRw%3d&risl=&pid=ImgRaw&r=0" alt="">
+    <h3>Something went wrong try after some time</h3>
+    <a target="blank" href="/login/auth-user/">Login / Sign up</a>
+<%}else{%>
+    <img src="/image/welcome.svg" alt="">
+    <h3>Verified ! Welcome to HS</h3>
+    <a target="blank" href="/">Go home and login</a>
+<%}%>
+
+
+
+</div>

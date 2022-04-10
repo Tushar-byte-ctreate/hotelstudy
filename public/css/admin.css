@@ -433,3 +433,23 @@ border: #40348f 1px solid;
     margin:10px;
     
 }
+ /* user togle */
+ .userdata{
+    position: absolute;
+    top:60px;
+    right: 20px;
+      width: 100px;
+      height: 130px;
+      background-color: #c7c3c3;
+      align-items:center;
+      display:none;
+      flex-direction: column;
+      transform: all 10ms;
+      z-index: 5;
+  }
+ .userdata a{
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #40348f;
+}
+

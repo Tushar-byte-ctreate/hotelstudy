@@ -6,4 +6,4 @@ const newsSchema = new mongoose.Schema({
    description:{type:String},   
 })
 
-module.exports = mongoose.model('News', newsSchema)
+module.exports = mongoose.model('News6', newsSchema)

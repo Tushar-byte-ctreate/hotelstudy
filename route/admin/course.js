@@ -96,7 +96,7 @@ route.get('/admin/course/:id',adminValidate, async (req,res)=>{
     const id = req.params.id
     const course = await Courses.findOne({_id:id}) 
 try {
-    res.render('admin/a-page', {course: course,pages: course.articles,error:req.flash('error'),info:req.flash('info')})   
+    res.render('admin/a-page', {course: course,user:req.user,pages: course.articles,error:req.flash('error'),info:req.flash('info')})   
 } catch (error) {
     req.flash('error', error.message)
     res.redirect('/course/list/admin')
@@ -117,7 +117,7 @@ try {
 route.get('/admin/create/:id/',adminValidate,(req,res)=>{
     const courseId = req.params.id
 
-    res.render('admin/a-create',{id: courseId,data:"",error:req.flash('error'),info:req.flash('info')})
+    res.render('admin/a-create',{id: courseId,data:"",user:req.user,error:req.flash('error'),info:req.flash('info')})
 })
 route.post('/admin/create/article',adminValidate, async (req,res)=>{
     const slugT = slugify(req.body.title, {
@@ -185,3 +185,4 @@ route.post('/admin/edit/:id',adminValidate, async(req,res)=>{
     })
 })
 module.exports = route
+

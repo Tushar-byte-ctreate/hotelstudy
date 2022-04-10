@@ -26,13 +26,23 @@
     </head>
     <body>
         <nav>
-            <h2 class=" m-3"> <i class="bi bi-speedometer2"></i> HotelStudy</h2> 
+            <h2 class=" m-3"> <i class="bi bi-speedometer2"></i> HotelStudy<sub style="color: black"><%=user.name%></sub> </h2>
+
             <div>
                 <form action="/search">
                     <input type="search" name="" id="" placeholder="Enter search term">
                     <button type="submit"><i class="ni bi-search"></i></button>
                 </form>
-                <img width="30px" src="../public/image/experts.jpeg" alt="">
+                <img id='userImg' style="cursor: pointer" width="30px" src="<%=user.profile%>" alt="">
+                
+            </div>
+          
+           
+            <div id='userData' class="userdata">
+                <a href="/user/profile/<%=user._id%>">Profile</a>
+                <a href="">Settings</a>
+                <a href="/logout">Logout</a>
+                <i id='close' style="cursor: pointer" class="bi bi-caret-up-fill"></i>
             </div>
         </nav>
 <div class="container">

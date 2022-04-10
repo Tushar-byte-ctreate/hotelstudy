@@ -14,12 +14,33 @@ res.redirect('/')
 
 })
 route.get('/user/profile/:id',  async (req, res)=>{
-   const userId = req.params.id
-   const user = await User.findById(userId)
-   if(!user) return res.redirect('/login/auth-user')
-res.render('userProfile',{user:user,title:"Profile", description:"userprofile"})
+
+   if(req.isAuthenticated()){
+      const userId = req.params.id
+      const user = await User.findOne({_id:userId})
+      if(!user) return res.redirect('/login/auth-user')
+   res.render('userProfile',{user:user,title:"Profile", description:"userprofile" ,error:req.flash('error'),info:req.flash('info')})
+   }else{
+      req.flash('error',"Please login first")
+      res.redirect('/login/auth-user')
+   }
+  
 })
 
- 
+ route.post('/user/profile/edit/:id', async (req,res)=>{
+
+  
+    const id = req.params.id
+    const updateData = await User.findByIdAndUpdate(id,{$set:{name:req.body.name}},{new:true})
+    
+    try {
+       
+       req.flash('info',"Name has been updated successfully")
+       res.redirect('/user/profile/'+id+'')
+    } catch (error) {
+      req.flash('error',"Something went wrong with updating")
+      res.redirect('/user/profile/'+id+'')
+    }
+ })
  
  module.exports = route

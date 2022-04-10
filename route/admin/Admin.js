@@ -5,7 +5,7 @@ const User = require('../../modules/user')
 const Comment = require('../../modules/comment')
 const Contect = require('../../modules/contectus')
 const course = require('./course')
-const validation = require('../middel')
+
 const adminValidate = require('../middel');
 const childValidate = require('../middel')
 
@@ -20,6 +20,19 @@ route.use(users)
  route.use(course)
  route.use(company)
  route.use(contact)
+
+ function validation(req,res,next) {
+    const user_name = req.user.username 
+   
+    if(user_name == "thisistusharkumar@gmail.com"){
+        next();
+    }else{
+        req.flash('error',"Please contact to Mr, Tushar for more information")
+        res.redirect('/admin-home')
+    }
+    
+}
+
 route.get('/admin-home',adminValidate, async (req,res)=>{
 
     const user =  await User.find({})
@@ -33,16 +46,14 @@ route.get('/admin-home',adminValidate, async (req,res)=>{
     const limit = 7, index = 0;
 const contact = contect.slice(index, limit + index)
 
-    res.render('admin/a-home', {contect:contact, cc:cc,uc:uc,coc:coc,error:req.flash('error'),info:req.flash('info')});
+    res.render('admin/a-home', {contect:contact,user:req.user,cc:cc,uc:uc,coc:coc,error:req.flash('error'),info:req.flash('info')});
 })
 
 
 route.get('/course/pages/list/admin',adminValidate,(req,res)=>{
     res.render('admin/a-page',{error:req.flash('error'),info:req.flash('info')})
 })
-route.get('/user/payments/admin',childValidate,adminValidate, (req,res)=>{
+route.get('/user/payments/admin',validation,adminValidate, (req,res)=>{
     res.render('admin/a-payment',{error:req.flash('error'),info:req.flash('info')})
 })
-
-
 module.exports = route

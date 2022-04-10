@@ -5,6 +5,8 @@ module.exports = function validation(req,res,next){
     }
 next()       
 }
+
+
 module.exports = function adminValidate(req, res, next){
    const user = req.user
    
@@ -18,6 +20,8 @@ module.exports = function adminValidate(req, res, next){
      res.redirect('/')
     
 }
+
+
 module.exports = function childValidate(req, res, next){
     const user = req.user
     
@@ -28,7 +32,6 @@ module.exports = function childValidate(req, res, next){
         return  next();
      }
      res.redirect('/')
-   
    
  }
 // module.exports = auth.restrict = function(req, res, next){

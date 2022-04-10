@@ -3,7 +3,7 @@
     padding: 0;
     font-family: 'Kanit', sans-serif;
 }
-nav{
+navi{
     position:sticky;
     top:0;
     width: 100%;
@@ -30,7 +30,7 @@ nav{
     color:#40348f;
     font-weight: bold;
 }
-.toggal{
+.toggale{
     display: none;
     cursor: pointer;
     width: 20px;
@@ -54,27 +54,27 @@ nav{
     cursor: pointer;
 }
 
-nav h2{
+navi h2{
     padding: 10px;
      color:#40348f;
 }
-nav div{
+navi div{
     width: 400px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: start; 
 }
-nav div img{
+navi div img{
     margin: 10px;
     border-radius:50%;
     cursor: pointer;
 }
-nav div form{
+navi div form{
     padding: 10px 30px;
     position: relative;
 }
-nav div form input{
+navi div form input{
     width: 200px;
     height: 30px;
     outline: none;
@@ -82,7 +82,7 @@ font-size:15px;
 border:none;
 border-bottom: 2px solid #40348f;
 }
-nav div form input:focus{
+navi div form input:focus{
  outline: none;
 
 }
@@ -92,7 +92,7 @@ input:focus{
 textarea:focus{
     outline: none;
 }
-nav div form button{
+navi div form button{
     position: relative;
    width: 30px;
    height: 30px;
@@ -101,96 +101,11 @@ nav div form button{
    color: #fff;
    cursor: pointer;
 }
-nav div form button:hover{
+navi div form button:hover{
     background:#40348f;
     color: #fff;
     transition: all 1.0 ease-in;
 }
-
-
-.postContainer{
-    width: 100%;
-    height: auto;
-
-}
-.postContainer form {
-    width: 100%;height: auto;
-    display: flex;
-    flex-direction: column;
-
-}
-.postContainer form h4{
-    padding: 10px;
-}
-.postContainer form input {
-    width: 90%;
-    height: 35px;
-    margin: 5px;
-    border:#40348f 1px solid;
-}
-.postContainer form button {
-    width: 80px;
-    height: 35px;
-    background-color: #40348f;
-    color: #fff;
-    border:none;
-    margin: 10px;
-}
-
-
-
-
-#readmore{
-    width: 100%;
-    height: 35px;
-
-    border-top: #40348f 1px solid;
-    border-bottom: #40348f 1px solid;
-}
-
-
-.readNews{
-    width: 75%;
-    height: auto;
-    min-height:100vh;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
-.readNews h2{
-    padding: 10px;
-    margin: 10px;
-}
-.postimg{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
-.postimg img {
-    width: 95%;
-    margin: 10px;
-}
-.postCont{
-    width: 100%;
-
-}
-.postCont .divcon{
-padding: 10px;
-margin: 10px;
-}
-
-@media (max-width:  980px){
-    .readNews{
-        width: 100%;
-    }
-}
-
-
-
-
-
 .userdata{
     position: absolute;
     top:60px;
@@ -255,9 +170,8 @@ z-index: -2;
 }
 .newsBox{
     width: 50%;
-    height: 100vh;
+    height: auto;
     display: flex;
-   
     flex-direction: column;
     align-items: center;
 }
@@ -278,6 +192,7 @@ z-index: -2;
 }
 .postby h4{
     padding: 10px;
+    width: 250px;
 }
 .postby span {
   
@@ -349,12 +264,17 @@ border: #40348f 1px solid;
     top: 20px;
     right: 20px;
 }
+#userImg{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
 @media (max-width:  980px){
-    nav{
+    navi{
         width: 100%;
         justify-content:center;
     }
-    .toggal{
+    .toggale{
         position: absolute;
         display:block;
         padding: 10px;
@@ -363,7 +283,12 @@ border: #40348f 1px solid;
         font-size: 18px;
 
     }
-   nav h2{
+   #userImg{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+   navi h2{
        position: relative;
        left: -20px;
   font-size:15px;
@@ -419,7 +344,107 @@ border: #40348f 1px solid;
     margin-left: 20%;
 }
 .posts{
+    margin-top:50px;
     width: 97%;
 }
 }
 
+
+
+/* newas read */
+
+
+
+
+.readNews{
+    width: 75%;
+    height: auto;
+    min-height:100vh;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.readNews h2{
+    padding: 10px;
+    margin: 10px;
+}
+.postimg{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.postimg img {
+    width: 95%;
+    margin: 10px;
+}
+.postCont{
+    width: 100%;
+
+}
+#readmore{
+    width: 100%;
+    height: 35px;
+    border-top: #40348f 1px solid;
+    border-bottom: #40348f 1px solid;
+}
+.postCont .divcon{
+padding: 10px;
+margin: 10px;
+}
+
+@media (max-width:  980px){
+    .readNews{
+        width: 100%;
+    }
+}
+
+/* create post */
+.linktocreate{
+    position:absolute;
+    right: 50px;
+    top: 10px;
+}
+.linktocreate a{
+    text-decoration :none;
+    padding: 10px;
+    background:#40348f;
+    color:#fff;
+}
+.postContainer{
+    width: 100%;
+    height: auto;
+
+}
+.postContainer form {
+    width: 100%;height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+.postContainer form h4{
+    padding: 10px;
+}
+.postContainer form input {
+    width: 95%;
+    height: 35px;
+    margin: 5px;
+    border:#40348f 1px solid;
+}
+.postContainer form #btn-post {
+    width: 80px;
+    height: 35px;
+    background-color: #40348f;
+    color: #fff;
+    border:none;
+    margin: 10px;
+}
+#create-btn button{
+    width: 80px;
+    height: 35px;
+    border: none;
+    background-color: #40348f;
+    color: #fff;
+    cursor: pointer;
+}
