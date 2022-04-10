@@ -71,7 +71,7 @@ app.use(auth)
 app.use("/hs",company)
 app.use(user);
 app.use(Admin)
-// app.use(CourseArticles)
+app.use(CourseArticles)
 app.use('/search/post/', search)
 
 app.use(comments)

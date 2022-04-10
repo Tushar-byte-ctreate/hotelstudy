@@ -23,9 +23,10 @@ route.get('/news',async (req,res)=>{
     const newsFilter = news.filter((el)=>{ 
         return el.type === 'public'
     })
+    const user = req.user ||{_id:""}
  
-    console.log(newsFilter)
-    res.render('news',{user:req.user, news:newsFilter,title:"News",description:" HotelStudy News will provide hotels news of india"})
+   
+    res.render('news',{user:user, news:newsFilter,title:"News",description:" HotelStudy News will provide hotels news of india"})
 })
 
 route.get('/create/news', async (req,res)=>{
