@@ -9,7 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="list.css">
         <!-- CSS only -->
-
+        <script
+        src="https://kit.fontawesome.com/6d985e968b.js"
+        crossorigin="anonymous"
+      ></script>
         <!-- google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,43 +46,71 @@
                 <i id='close' style="cursor: pointer" class="bi bi-caret-up-fill"></i>
             </div>
         </nav>
-   <div class="postContainer">
-       <form action="">
-           <h4>Post Article</h4>
-           <input type="text" name="title" id="" placeholder="Title">
-           <input type="text" name="discription" id="" placeholder="Discription">
-           <input type="file" name="image" id="" placeholder="Upload image">
-          
-           <button type="submit">Submit</button>
-       </form>
+   <div class="userprofile">
+       <div class="userdetailes">
+           <div class="userimg">
+               <img src="https://www.sharekhan.com/MediaGalary/image/Newtomarke_offerings_Tools_skdesktopwebsite-201912261440309190919.jpg" alt="">
+               <i id="showf" style="cursor: pointer" class="far fa-edit"></i>
+               <form id="uiChange" action="/edit/user/img/">
+                   <input type="file" name="" id="">
+                 <span><button  type="submit">Save</button> <tag style="cursor:pointer" id="hideThis">cancel</tag></span>  
+               </form>
+           </div>
+           <div class="userd">
+            <form id="udChange" action="/edit/user/img/">
+                <h3>Change your details</h3>
+                <input type="text" name="" id="" >
+                <input type="text" name="" id="" >
+                <input type="text" name="" id="" >
+              <span><button type="submit">Save</button> <tag style="cursor: pointer" id="hided">cancel</tag></span>  
+            </form>
+               <ul>
+                   <li><i id="showd" style="cursor: pointer" class="far fa-edit"></i></li>
+                   <li>
+                       <h3>Tushar Kumar</h3>
+                      
+
+                   </li>
+                   <li>Tushar@gmai.com</li>
+                   <li>Student</li>
+               </ul>
+           </div>
+       </div><div class="userposts">
+           <div class="text-tite">
+               <h3>Your posts</h3>
+           </div>
+           <div class="userp">
+               <img src="https://www.sharekhan.com/MediaGalary/image/Newtomarke_offerings_Tools_skdesktopwebsite-201912261440309190919.jpg" alt="">
+               <p>Lorem ipsum dolor sit amet.</p>
+               <p style="color: red">Draft</p>
+               <span>
+                  
+                <a href=""><i class="bi bi-pencil"></i></a>
+                <a href="/"><i class="bi bi-eye"></i></a><a href=""><i class="fas fa-globe-africa"></i></a><a href=""><i class="bi bi-trash-fill"></i></a>
+                
+            </span>
+           </div>
+
+       </div>
    </div>
     <script>
-        const menu = document.querySelector('.toggal')
-        const list = document.querySelector('.ulNews')
-        const hidemenu = document.querySelector('#hidemenu')
-        const showSearch = document.querySelector('#searchicon')
-        const hidebar = document.querySelector('#hidesearch')
-        const searchBar = document.querySelector('.searchForm')
-
-        menu.addEventListener('click',()=>{
-            list.style.left = '0px'
-            menu.style.display = 'none'
-            hidemenu.style.display = 'block'
+        const form = document.getElementById('uiChange')
+        const showf = document.getElementById('showf')
+        const hideForm = document.getElementById('hideThis')
+        const form2 = document.getElementById('udChange')
+        const showd = document.getElementById('showd')
+        const hided = document.getElementById('hided')
+        showf.addEventListener('click',()=>{
+            form.style.display="flex"
         })
-        hidemenu.addEventListener('click',()=>{
-            list.style.left = '-100%'
-            hidemenu.style.display = 'none'
-            menu.style.display = 'block'
+        hideForm.addEventListener('click',()=>{
+            form.style.display='none'
         })
-        showSearch.addEventListener('click',()=>{
-            searchBar.style.left = '20px'
-            hidebar.style.display='block'
-            showSearch.style.display = 'none'
+        showd.addEventListener('click',()=>{
+            form2.style.display="flex"
         })
-        hidebar.addEventListener('click',()=>{
-            searchBar.style.left = '-100%'
-            hidebar.style.display='none'
-            showSearch.style.display = 'block'
+        hided.addEventListener('click',()=>{
+            form2.style.display="none"
         })
     </script>
     </body>

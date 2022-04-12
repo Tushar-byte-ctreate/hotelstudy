@@ -7,8 +7,8 @@
         <li ><a href="/news">Home</a></li><li><a href="/">HotelStudy</a></li><li><a href="/hs/contact/us">Contact Us</a></li>
     </ul>
     <div class="searchForm">
-        <form action="/search">
-            <input type="search" name="" id="" placeholder="Enter search term">
+        <form action="/search/news/query/" method="get">
+            <input type="search" name="search_type" id="" placeholder="Enter search term">
             <button type="submit"><i class="ni bi-search"></i></button>
         </form>
        
@@ -19,11 +19,13 @@
        <% }else{%>
         <span class="loginSpan"><a id="loginbtn" href="/login/auth-user">Login</a></span>
         <%}%>
-   
+        <% if (locals.session.loggedin){ %>
     <div id='userData' class="userdata">
         <a href="/user/profile/<%=user._id%>">Profile</a>
         <a href="">Settings</a>
         <a href="/logout">Logout</a>
         <i id='close' style="cursor: pointer" class="bi bi-caret-up-fill"></i>
     </div>
+    <% }else{%>
+        <%}%>
 </navi>

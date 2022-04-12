@@ -27,7 +27,7 @@ route.get('/courses-list/', async(req,res)=>{
     })||""
     console.log(fnb)
 
-    res.render('course_list',{title:'courses',fnb:fnb,hk:hk,fo:fo,univers:un,fp:fp ,description:"All courses of HotelStudy"})
+    res.render('course_list',{title:'Courses',fnb:fnb,hk:hk,fo:fo,univers:un,fp:fp ,description:"All courses of HotelStudy"})
 })
 
 

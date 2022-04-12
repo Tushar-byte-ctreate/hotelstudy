@@ -1,5 +1,6 @@
 const route = require ('express').Router();
 const User = require('../modules/user')
+const News = require('../modules/newsH')
 const validate = require('./middel')
 const cookieParser = require("cookie-parser");
 
@@ -14,12 +15,14 @@ res.redirect('/')
 
 })
 route.get('/user/profile/:id',  async (req, res)=>{
-
+   const userId = req.params.id
    if(req.isAuthenticated()){
-      const userId = req.params.id
+      
       const user = await User.findOne({_id:userId})
+      const news = await News.find({user:userId})
+      
       if(!user) return res.redirect('/login/auth-user')
-   res.render('userProfile',{user:user,title:"Profile", description:"userprofile" ,error:req.flash('error'),info:req.flash('info')})
+   res.render('userProfile',{user:user,news:news,title:"Profile", description:"userprofile" ,error:req.flash('error'),info:req.flash('info')})
    }else{
       req.flash('error',"Please login first")
       res.redirect('/login/auth-user')
@@ -31,7 +34,7 @@ route.get('/user/profile/:id',  async (req, res)=>{
 
   
     const id = req.params.id
-    const updateData = await User.findByIdAndUpdate(id,{$set:{name:req.body.name}},{new:true})
+    const updateData = await User.findByIdAndUpdate(id,{$set:{name:req.body.name,username:req.body.username,type:req.body.type}},{new:true})
     
     try {
        

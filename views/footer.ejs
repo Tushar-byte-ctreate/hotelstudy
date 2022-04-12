@@ -95,6 +95,26 @@ cancelForm.addEventListener('click',()=>{
             typeInput.value = "public"
         })
     </script>
+     <script>
+        const form = document.getElementById('uiChange')
+        const showf = document.getElementById('showf')
+        const hideForm = document.getElementById('hideThis')
+        const form2 = document.getElementById('udChange')
+        const showd = document.getElementById('showd')
+        const hided = document.getElementById('hided')
+        showf.addEventListener('click',()=>{
+            form.style.display="flex"
+        })
+        hideForm.addEventListener('click',()=>{
+            form.style.display='none'
+        })
+        showd.addEventListener('click',()=>{
+            form2.style.display="flex"
+        })
+        hided.addEventListener('click',()=>{
+            form2.style.display="none"
+        })
+    </script>
     <script>
             var btn_reply = document.getElementById("btn-reply");
 var form_reply = document.getElementById("form-reply");
@@ -277,7 +297,8 @@ const formEvent = form.addEventListener('submit', event => {
             $('textarea#body').summernote({
                 height: '600px',
             });
-            
+            var value = $('#value').val()
+            $('textarea#body').summernote('pasteHTML', value);
         });
        
         

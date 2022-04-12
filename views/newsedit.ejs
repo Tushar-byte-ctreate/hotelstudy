@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+<%- include('newsNav'); -%>
+<div class="postContainer">
+    
+
+    <form action="/news/edit/<%=news._id%>" method='post' >
+        <h4>Edit</h4>
+      <input type="text" name="title" id="" placeholder="Enter Title"  value='<%=news.title%>'/>
+      <input  type="text" name="discription" id="dics" placeholder="Enter Description" value='<%=news.discription%>'/>
+      <input type="file" name="image" id="" placeholder="upload image here" value='data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%>'>
+      <input type="hidden" name="Uid" value="<%=news.user%>"  >
+      <input type="hidden" name="uName" value="<%=news.username%>"  >
+    <input type="hidden" id="type-input" name="type" value=''>
+      
+      <textarea name='content' id="body" rows="10" ></textarea>
+      <span id="create-btn"><button id='btn-post' type="submit">Save as Draft</button> <button style="background:#ec639f;" id="public"  type="submit">Public</button></span>
+      <input id="value" type='hidden' value="<%=news.content%>" />
+    </form>
+    </div>
+
+
+<%- include('footer'); -%>

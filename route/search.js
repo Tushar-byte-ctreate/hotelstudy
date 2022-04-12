@@ -6,6 +6,14 @@ const Course = require('../modules/course')
 route.get('/serach',(req,res)=>{
     res.send(' you are searching now')
 })
+
+
+
+
+
+
+
+
 route.get('/query/',async (req,res) => {
     var url =new URL( req.protocol + '://' + req.get('host') + req.originalUrl)
     const query = url.searchParams.get('search_type')
@@ -64,8 +72,5 @@ route.get('/:id',async(req, res) => {
 
     // res.redirect('/'+ course.slugCourse +'/'+ article.slug + '')
 })
-route.get('/about ' ,(req, res)=>{
-    console.log('data')
-    res.send('hello')
-})
+
 module.exports = route

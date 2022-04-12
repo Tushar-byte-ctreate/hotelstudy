@@ -71,7 +71,7 @@ app.use(auth)
 app.use("/hs",company)
 app.use(user);
 app.use(Admin)
-app.use(CourseArticles)
+// app.use(CourseArticles)
 app.use('/search/post/', search)
 
 app.use(comments)
@@ -94,7 +94,7 @@ app.post('/create/news/post', upload, async (req,res)=>{
       },
       username:req.body.uName,
       user :req.body.Uid,
-      discrption: req.body.discrption,
+      discription: req.body.discription,
       content : req.body.content,
       type:req.body.type,
       date : date.toDateString(),
@@ -110,9 +110,9 @@ try {
 }
 })
 
-app.use((req, res,next)=>{
-  res.render('404',{title:"404",description:"404",user:req.user});
-});
+// app.use((req, res,next)=>{
+//   res.render('404',{title:"404",description:"404",user:req.user});
+// });
 
 
 
