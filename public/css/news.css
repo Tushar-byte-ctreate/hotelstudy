@@ -192,18 +192,30 @@ z-index: -2;
 }
 .postby h4{
     padding: 10px;
-    width: 250px;
+    width:auto;
 }
-.postby span {
+/* .postby span {
   
-   margin-left: 50%;
-}
+   margin-left: 40%;
+   width:100px;
+} */
 .postby{
     width: 100%;
     height: 45px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #40348f ;
+}
+#dateViews{
+    width: 400px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:cenetr;
+float:right;
+}
+#dateViews p{
+    margin:0 10px;
 }
 .posttm{
     width: 100%;
@@ -283,6 +295,13 @@ border: #40348f 1px solid;
         font-size: 18px;
 
     }
+    #dateViews{
+        width: 400px;
+        flex-direction:column;
+    }
+    .naming{
+        width: 400px;
+    }
    #userImg{
         position: absolute;
         top: 15px;
@@ -341,7 +360,9 @@ border: #40348f 1px solid;
        width: 100%;
    }
    .postby span {
-    margin-left: 20%;
+      
+       font-size:12px;
+    margin-left: 0%;
 }
 .posts{
     margin-top:50px;
@@ -360,7 +381,7 @@ border: #40348f 1px solid;
     width: 75%;
     height: auto;
     min-height:100vh;
-    display: flex;
+    
     justify-content:center;
     align-items:center;
 }

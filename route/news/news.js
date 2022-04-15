@@ -6,6 +6,8 @@ const multer = require('multer');
 const path = require('path')
 const imageToBase64 = require('image-to-base64');
 const readnews = require('./raednews');
+const moment = require('moment');
+
 
 const News = require ('../../modules/newsH')
 
@@ -24,7 +26,7 @@ function uservalidation (req,res,next){
 }
 
 route.get('/news',async (req,res)=>{
-    const news = await News.find({})
+    const news = await News.find({}).limit().sort({$natural:-1})
     const newsFilter = news.filter((el)=>{ 
         return el.type === 'public'
     })
@@ -88,17 +90,53 @@ route.get('/news/:slug',async (req,res)=>{
     const slug = req.params.slug
     const news = await News.findOne({slugTitle:slug})
 
+   
+
     try {
+
+       if(news.views == " "|| news.views == null){
+           news.views = 1;
+
+           news.save();
+           res.render('readnews',{title:news.title ,description:news.discription, user:req.user,news:news})
+       }else{
+          var value = parseInt(news.views)+1;
+           news.views +=1 
+           news.save();
+           var value = news.views
+           function converse_number (labelValue) {
+
+            // Nine Zeroes for Billions
+            return Math.abs(Number(labelValue)) >= 1.0e+9
+
+            ? Math.abs(Number(labelValue)) / 1.0e+9 + "B"
+            // Six Zeroes for Millions 
+            : Math.abs(Number(labelValue)) >= 1.0e+6
+
+            ? Math.abs(Number(labelValue)) / 1.0e+6 + "M"
+            // Three Zeroes for Thousands
+            : Math.abs(Number(labelValue)) >= 1.0e+3
+
+            ? Math.abs(Number(labelValue)) / 1.0e+3 + "K"
+
+            : Math.abs(Number(labelValue))
+
+        }
+
+        const date = moment(news.date).fromNow()
+        console.log(date)
        
-        res.render('readnews',{title:news.title ,description:news.discription, user:req.user,news:news})
+     const views = converse_number(value)
+        
+           res.render('readnews',{title:news.title,date:date,views:views,description:news.discription, user:req.user,news:news})
+       }
+       
     } catch (error) {
         res.send(error)
     }
-
 })
 route.get("/news/post/delete/:id",uservalidation , async (req,res)=>{
     const id = req.params.id
-
 const news = await News.findOneAndDelete({_id:id})
 console.log(news)
 try{
@@ -109,8 +147,6 @@ try{
     res.redirect('back')
 }
 })
-
-
 // news search
 route.get('/search/news/query/', async (req,res)=>{
     var url =new URL( req.protocol + '://' + req.get('host') + req.originalUrl)

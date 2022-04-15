@@ -226,20 +226,19 @@ route.post('/forgot/password/',  (req,res)=>{
      ;
     });
 
-
 })
 route.get('/reset/:token', function(req, res) {
 
   const token = req.params.token
-  console.log(token +'one token')
-  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+ 
+  User.findOne({ Token: req.params.token, tokenExpires: { $gt: Date.now() } }, function(err, user) {
     if (!user) {
         
       req.flash('error', 'Password reset token is invalid or has expired.');
      
       return res.redirect('/login/auth-user');
      
-    }else{console.log(user + "two")
+    }else{
   
     res.render('changePass', {
       token: token,
@@ -260,11 +259,11 @@ if(!req.body.password == req.body.rePassword ){
   req.flash('error',"Password does not match")
   res.redirect('back')
    }else{
-     const user = await User.findOne({ resetPasswordToken: token, resetPasswordExpires: { $gt: Date.now() } })
+     const user = await User.findOne({ Token: token, tokenExpires: { $gt: Date.now() } })
      try {
        await user.setPassword(req.body.password)
-       user.resetPasswordToken = undefined;
-       user.resetPasswordExpires = undefined;
+       user.Token = undefined;
+       user.tokenExpires = undefined;
        await user.save()
        
        var mailOptions = {
@@ -275,10 +274,10 @@ if(!req.body.password == req.body.rePassword ){
           'This is a confirmation that the password for your account ' + user.username + ' has just been changed.\n'
       };
       transporter.sendMail(mailOptions, function(err) {
-        req.flash('info', 'Success! Your password has been changed.');
+        
        
       });
-
+      req.flash('info', 'Success! Your password has been changed.');
       res.redirect('/login/auth-user')
 
        

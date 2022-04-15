@@ -23,9 +23,9 @@
     <div class="readNews">
         <div class="newsRender">
             <h2><%=news.title%></h2>
-            <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4><%=news.username%></h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
+            <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4 style="width: 400px;"><%=news.username%></h4><span  id="dateViews"> <p width='50px;''><i class="bi bi-eye"></i> <%=news.views%></p> <p><i class="bi bi-clock"></i>  <%= moment(news.date).fromNow() %></p></span></div>
             <div class="postimg">
-                <img src="data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%>" alt="">
+                <img src="data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%>" alt="image">
             </div>
             <div class="postCont">
                 <div class="divcon"><%-news.content%></div>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="posts">
-                <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4>LTH Delhi</h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
+                <div class="postby"><img src="https://th.bing.com/th/id/OIP.Bt2tDCEAP7IRxzzCaVJEfwHaHa?pid=ImgDet&rs=1" alt=""> <h4 >LTH Delhi</h4> <span><i class="bi bi-clock"></i> 2 min ago </span></div>
                 <hr>
                 <div class="posttm"> <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. lorem hjh jhhm jhh jhhn hio Ipsam, magnam.</h3> <img src="https://th.bing.com/th/id/OIP.w112bg3VrzMncGBvwyNvjwHaE7?pid=ImgDet&rs=1" alt=""></div>
                

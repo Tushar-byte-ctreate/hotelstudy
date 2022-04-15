@@ -25,7 +25,8 @@ const news = require ('./route/news/news')
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path')
-
+var moment = require('moment');
+app.locals.moment = require('moment');
 app.use('/uploads',express.static(__dirname + './uploads'));
 app.use(express.static((__dirname, 'public')));
 app.set("view engine", "ejs");
@@ -71,7 +72,7 @@ app.use(auth)
 app.use("/hs",company)
 app.use(user);
 app.use(Admin)
-// app.use(CourseArticles)
+app.use(CourseArticles)
 app.use('/search/post/', search)
 
 app.use(comments)
@@ -97,11 +98,11 @@ app.post('/create/news/post', upload, async (req,res)=>{
       discription: req.body.discription,
       content : req.body.content,
       type:req.body.type,
-      date : date.toDateString(),
+      date : date,
 
   })
 try {
-    console.log(savingto)
+    
     req.flash('info',"Post has created successfully")
     res.redirect('/news')
 } catch (error) {
