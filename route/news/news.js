@@ -31,6 +31,7 @@ route.get('/news',async (req,res)=>{
         return el.type === 'public'
     })
     const user = req.user ||{_id:""}
+ 
     res.render('news',{user:user, news:newsFilter,title:"News",description:" HotelStudy News will provide hotels news of india"})
 })
 route.get('/news/edit/hs/:newsid',uservalidation, async (req,res)=>{

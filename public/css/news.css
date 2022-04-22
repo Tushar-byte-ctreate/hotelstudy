@@ -206,6 +206,12 @@ z-index: -2;
     align-items: center;
     border-bottom: 1px solid #40348f ;
 }
+.postby h4{
+    width:300px;
+}.postby h4 a{
+    text-decoration:none;
+    color:#000;
+}
 #dateViews{
     width: 400px;
     display:flex;

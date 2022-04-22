@@ -125,7 +125,7 @@ route.post('/admin/create/article',adminValidate, async (req,res)=>{
         strict: true,
         lower:true
     })
-    const date = new Date().toLocaleDateString()
+    const date = new Date()
     const blogData = {
         title:req.body.title,
         content:req.body.content,

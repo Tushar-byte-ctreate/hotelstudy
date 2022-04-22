@@ -1,0 +1,67 @@
+
+<%- include('header'); -%>
+<%- include('hsNav'); -%>
+
+<% if(error == "" || error == null ){%>
+
+    <%}else{%>
+      <span class="error">
+        <p><%=error%></p> <i id="removeFlash" class="fas fa-times"></i>
+      </span>
+    <%}%>
+    <% if(info == "" ||info == null){%>
+        
+       
+      <% }else{%>
+        <span class="info">
+            <p><%= info%> </p> <i   id="removeFlash" class="fas fa-times"></i>
+          </span>
+        
+    <%} %>
+    <div class="userprofile">
+      <div class="userdetailes">
+          <div class="userimg">
+              <img src="https://www.sharekhan.com/MediaGalary/image/Newtomarke_offerings_Tools_skdesktopwebsite-201912261440309190919.jpg" alt="">
+             
+             
+          </div>
+          <div class="userd">
+           
+              <ul>
+                 
+                  <li>
+                      <h3><%=userProfile.name%></h3>
+                  </li>
+                  
+                  <li><%=userProfile.type%></li>
+              </ul>
+          </div>
+      </div><div class="userposts">
+          <div class="text-tite">
+              <h3>Posts</h3>
+          </div>
+        <%   if(news == "" || news == null){ %>
+            <h3>There is no any posts </h3>
+         <%  }else{ %>
+      <% news.forEach(function(news){ %>
+  <div class="userp">
+    <img src=" data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%> " alt="">
+    <p><%=news.title%></p>
+    <% if(news.type === "public") {  %>
+      <p style="color: green">Public</p>
+    <% }else{ %>
+      <p style="color: red">Draft</p>
+    <% } %>
+    <span style="display:flex; justify-content:center;"> <p><i class="bi bi-eye"></i> <%=news.views%></p></span>
+    <span>
+     
+     <a href="/news/<%=news.slugTitle%>"><i class="bi bi-eye"></i></a>  
+ </span>
+</div>
+<% }) %>
+          <% }  %>
+         
+
+      </div>
+  </div>
+<%- include('footer'); -%>

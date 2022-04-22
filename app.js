@@ -21,6 +21,7 @@ const comments = require('./route/comment')
 const search = require ('./route/search')
 const Admin = require('./route/admin/Admin')
 const auth = require('./route/auth')
+const userProfile = require('./route/uerProfile')
 const news = require ('./route/news/news')
 const fs = require('fs');
 const multer = require('multer');
@@ -65,11 +66,12 @@ app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
 });
-
+app.use(userProfile)
 app.use(home)
 app.use(news)
 app.use(auth)
 app.use("/hs",company)
+
 app.use(user);
 app.use(Admin)
 app.use(CourseArticles)

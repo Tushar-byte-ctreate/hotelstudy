@@ -17,7 +17,7 @@
            <h1><%= article.title %></h1>
           
            <span> <i class="fas fa-user"></i> <%= admin.name
-            %><i class="far fa-clock"></i> <%= article.date%></span>
+            %><i class="far fa-clock"></i> <%= moment(article.date).fromNow() %></span>
            <p><%- article.content %></p>
            <div class="next">
                <% if(previous == undefined) { %>
