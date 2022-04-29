@@ -10,7 +10,7 @@ route.get('/login/auth-user', (req,res)=>{
    req.session.returnTo = req.query.origin
    else
    req.session.returnTo = req.header('Referer')
-   if(!req.isAuthenticated())  return  res.render('log',{error:req.flash('error'),info:req.flash('info'),title:"Login", description:""})
+   if(!req.isAuthenticated())  return  res.render('log',{error:req.flash('error'),info:req.flash('info'),title:"Login | HotelStudy", description:""})
 res.redirect('/')
 
 })
