@@ -1,5 +1,6 @@
 const route = require ('express').Router();
 const Contect = require ('../modules/contectus')
+const Company = require ('../modules/hs')
 var flash = require('connect-flash');
 route.use(flash());
 const nodemailer = require("nodemailer");
@@ -14,24 +15,34 @@ const transporter = nodemailer.createTransport({
 });
 
 route.get('/hs/about',(req,res)=>{
-    console.log('j')
+    
     res.render('aboutus')
   })
-  route.get('/about',(req, res)=>{
+  route.get('/about', async(req, res)=>{
+    const about = await Company.findOne({title:"About Us"})
+
+
     const title = "About" || "HotelStudy"
-    res.render('aboutus',{title : title,description:"About Pages"})
+    res.render('aboutus',{title : title,description:"About Pages",data:about,user:req.user})
 })
 route.get('/contact/us',(req,res)=>{
     const title = "contact" || "HotelStudy"
     res.render('contactus',{title : title,description:"",user:req.user, message:req.flash('info')})
 })
-route.get('/terms/condition',(req,res)=>{
+route.get('/terms/condition',async(req,res)=>{
+  const tnc = await Company.findOne({title:"Terms and Condition"})
   const title = "contact" || "HotelStudy"
-  res.render('term',{title:'T&C',description:""})
+  res.render('aboutus',{title:'T&C',description:"",data : tnc,user:req.user})
 })
-route.get('/privecy-policy/',(req,res)=>{
+route.get('/privecy-policy/',async(req,res)=>{
   const title = "PnP" || "HotelStudy"
-  res.render('policy',{title:title,description:""})
+  const pp = await Company.findOne({title:"Privacy Policy"})
+  res.render('aboutus',{title:title,description:"",data:pp,user:req.user})
+})
+route.get('/experts/',async(req,res)=>{
+  const title = "Experts" || "HotelStudy"
+  const pp = await Company.findOne({title:"Experts"})
+  res.render('aboutus',{title:title,description:"",data:pp,user:req.user})
 })
 route.post('/contect/us', async(req,res)=>{
     const data = req.body

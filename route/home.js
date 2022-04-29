@@ -1,10 +1,14 @@
 const route = require ('express').Router();
 const Course = require('../modules/course')
+const Company = require('../modules/hs')
 
 
 route.get('/', async(req,res) => {
 
 const courses = await Course.find({})
+
+
+
 const title = "HotelStudy";
     res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""})
         

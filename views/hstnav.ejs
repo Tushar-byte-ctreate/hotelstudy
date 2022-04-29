@@ -1,0 +1,31 @@
+<navi><div class="toggale"><i class="fas fa-bars"></i></div>
+    <i id="hidemenu" class="bi bi-x-lg"></i>
+    <span style="display: flex;"><h2 class=" m-3">  Hotelier Talks  </h2><img width="50px" height="50px" src="/image/mic.png" alt=""></span>
+    <i id="searchicon"  class="bi bi-search-heart"></i>
+    <i id="hidesearch" class="bi bi-x-lg"></i>
+    <ul class="ulNews">
+        <li ><a href="/news">Home</a></li><li><a href="/">HotelStudy</a></li><li><a href="/hs/contact/us">Contact Us</a></li>
+    </ul>
+    <div class="searchForm">
+        <form action="/search/news/query/" method="get">
+            <input type="search" name="search_type" id="" placeholder="Enter search term">
+            <button type="submit"><i class="ni bi-search"></i></button>
+        </form>
+       
+    </div>
+
+    <% if (locals.session.loggedin){ %>
+        <img id='userImg' style="cursor: pointer" width="30px" src="<%= user.profile%>" alt="">
+       <% }else{%>
+        <span class="loginSpan"><a id="loginbtn" href="/login/auth-user">Login</a></span>
+        <%}%>
+        <% if (locals.session.loggedin){ %>
+    <div id='userData' class="userdata">
+        <a href="/user/profile/<%=user._id%>">Profile</a>
+        <a href="">Settings</a>
+        <a href="/logout">Logout</a>
+        <i id='close' style="cursor: pointer" class="bi bi-caret-up-fill"></i>
+    </div>
+    <% }else{%>
+        <%}%>
+</navi>

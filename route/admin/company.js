@@ -19,7 +19,7 @@ route.get('/admin/company/hs/',validation,adminValidate,async (req,res)=>{
 
     const pages = await Company.find({})
 
-    res.render('admin/company',{pages:pages,error:req.flash('error'),info:req.flash('info')})
+    res.render('admin/company',{pages:pages,error:req.flash('error'),info:req.flash('info'),user:req.user})
 
 })
 route.get('/admin/create/company/page',validation,adminValidate,(req,res)=>{

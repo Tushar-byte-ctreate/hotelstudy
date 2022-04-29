@@ -23,6 +23,7 @@ const Admin = require('./route/admin/Admin')
 const auth = require('./route/auth')
 const userProfile = require('./route/uerProfile')
 const news = require ('./route/news/news')
+const hstalks = require ('./route/hoteltalks/home')
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path')
@@ -71,7 +72,7 @@ app.use(home)
 app.use(news)
 app.use(auth)
 app.use("/hs",company)
-
+app.use(hstalks)
 app.use(user);
 app.use(Admin)
 app.use(CourseArticles)
