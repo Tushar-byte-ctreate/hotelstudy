@@ -114,9 +114,9 @@ try {
 }
 })
 
-// app.use((req, res,next)=>{
-//   res.render('404',{title:"404",description:"404",user:req.user});
-// });
+app.use((req, res,next)=>{
+  res.render('404',{title:"404",description:"404",user:req.user});
+});
 
 
 

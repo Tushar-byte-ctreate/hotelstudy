@@ -1,6 +1,7 @@
-<nav> <div class="toggal"><i class="fas fa-bars"></i></div>
+<nav> <div class="toggal"><i id="toggal" style="font-size:23px;" class="fas  fa-bars"></i>   <i id="hidemenue" style="display:none;font-size:15x;" class="fas fa-times fa-2x"></i></div>
+ 
     <div class="logo">
-        <h2> <a style="text-decoration:none; color:#000;" href="/"> HotelStudy.Org</a> </h2>
+        <h2 > <a style="text-decoration:none; color:#000;" href="/"><img style="margin-top: 5px;" width="150px" src="/image/logo1.jpeg" alt=""></a> </h2>
     </div>
     <div>
    <div id='search'> <i  class="fas fa-search fa-2x"></i></div><div class="hide-search" ><i class="fas fa-times fa-2x"></i></div>
@@ -12,7 +13,7 @@
         <li><a href="/courses-list/">Courses</a></li>
         <li><a href="/interview">Interviews</a></li>
         <li><a href="/">More</a></li>
-        <div class="cut"><i class="fas fa-times"></i></div>
+        
     
     </ul>
 
@@ -22,20 +23,19 @@
        <button id="show-search" type="submit"><i  class="fas fa-search fa-2x"></i></button>
        
     </form>
-   
+</div>
     <span>
         <% if (locals.session.loggedin){ %>
             <div class="userPro">
                 <img id='userImg' style="cursor: pointer" src="<%=user.profile%>" alt="user_image">
             </div>
        <% }else{ %>
-        <button ><a href="/login/auth-user">login</a></button>
-        <a id="login-btn" style="background:#40348f; text-decoration:none;padding:5px 10px;color:#fff;" href="/login/auth-user">login</a>
+        <span class="loginSpan"><a style="border-radius: 5px; background-color: #40348f;color:#fff;" id="loginbtn" href="/login/auth-user">Login</a></span>
         <%} %>
 </span>
 <% if (locals.session.loggedin){ %>
 <div id="hideSearch" ><i class="fas fa-times"></i></div>
-</div>
+
 <div id='userData' class="userdata">
     <a href="/user/profile/<%=user._id%>">Profile</a>
     <a href="">Settings</a>

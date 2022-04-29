@@ -27,9 +27,9 @@
         </footer>
         <script src="" async defer></script>
         <script type="text/javascript">
-            let responsive = document.querySelector('.navlinks');
-            let toggler = document.querySelector('.toggal');
-            let cancel = document.querySelector('.cut')
+            let responsive = document.querySelector('.navlinksxv');
+            let toggler = document.querySelector('.toggalcv');
+            let cancel = document.querySelector('.cutx')
             let hideBar = document.querySelector('.hide-search')
             let search_show = document.querySelector('#search')
             let search_box = document.querySelector('.search_box')
@@ -166,7 +166,6 @@ var index_btn= document.getElementById("index-come")
             co_form.style.display='none'
         })
         
-
     </script>
     <script>
 var show = document.getElementById('forgetForm')
@@ -208,6 +207,35 @@ forgetPass.addEventListener('click',function(){
             searchBar.style.left = '-100%'
             hidebar.style.display='none'
             showSearch.style.display = 'block'
+        })
+    </script>
+     <script>
+        const menue = document.querySelector('#toggal')
+        const liste = document.querySelector('.navlinks')
+        const hidemenue = document.querySelector('#hidemenue')
+       const showSearche = document.querySelector('#search')
+       const hidebare = document.querySelector('.hide-search')
+       const searchBare = document.querySelector('.search_box')
+
+        menue.addEventListener('click',()=>{
+            liste.style.left = '0px'
+            menue.style.display = 'none'
+            hidemenue.style.display = 'block'
+        })
+        hidemenue.addEventListener('click',()=>{
+            liste.style.left = '-100%'
+            hidemenue.style.display = 'none'
+            menue.style.display = 'block'
+        })
+        showSearche.addEventListener('click',()=>{
+            searchBare.style.left = '20px'
+            hidebare.style.display='block'
+            showSearche.style.display = 'none'
+        })
+        hidebare.addEventListener('click',()=>{
+            searchBare.style.left = '-100%'
+            hidebare.style.display='none'
+            showSearche.style.display = 'block'
         })
     </script>
     <script>
