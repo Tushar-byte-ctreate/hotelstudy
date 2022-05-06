@@ -8,6 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="list.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <!-- CSS only -->
         <script
         src="https://kit.fontawesome.com/6d985e968b.js"
@@ -18,7 +19,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 
-
+        <script src="//www.youtube.com/player_api"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> 
     </head>
     <body>
@@ -47,22 +48,178 @@
             </div>
         </nav>
   
-                <div class="hstalk">
-                    <div class="hsbox">
-                        <div class="hstitle">
-                            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quibusdam.</h3>
-                        </div>
-                        <div class="hsvideo">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5SLB4wj2vDg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="hslike">
-                            <span><i class="bi bi-hand-thumbs-up"></i> 12K</span>
-                           
-                            <span><i class="bi bi-hand-thumbs-down"></i> 12K</span>
-                            <span><i class="fa fa-share" aria-hidden="true"></i> 12K</span>
-                        </div>
+               <div class="hstalk">
+                   <div class="hsbox">
+                       <div class="postbyt">
+                        <img width="50px" src="/public/image/experts.jpeg" alt=""> <p>Tushar Kumar</p> 
+
+                       </div>
+                       <div class="hstitle">
+                           <p>Tushar Kumar Share ing the </p>
+                       </div>
+                       <div class="videohs">
+                        <iframe  id="player" type="text/html"  src="https://www.youtube.com/embed/PKMQzkIiB0Y?enablejsapi=1&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; c encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                       </div>
+                       <div class="hsviews">
+                           <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
+                       </div>
+                       <div class="likehs">
+                           <span><i class="bi bi-hand-thumbs-up"></i></span>
+                           <span><i class="bi bi-hand-thumbs-down"></i></span>
+                           <span><i class="fa-solid fa-share"></i></span>
+
+                       </div>
+
+                      
+                   </div>
+                   <div class="hsbox">
+                    <div class="postbyt">
+                     <img width="50px" src="/public/image/experts.jpeg" alt=""> <p>Tushar Kumar</p> 
+
                     </div>
+                    <div class="hstitle">
+                        <p>Tushar Kumar Share ing the </p>
+                    </div>
+                    <div class="videohs">
+                     <iframe id="player" type="text/html"  src="https://www.youtube.com/embed/2wzBDkB0F4g?enablejsapi=1&autoplay=1" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                    </div>
+                    <div class="hsviews">
+                        <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
+                    </div>
+                    <div class="likehs">
+                        <span><i class="bi bi-hand-thumbs-up"></i></span>
+                        <span><i class="bi bi-hand-thumbs-down"></i></span>
+                        <span><i class="fa-solid fa-share"></i></span>
+
+                    </div>
+
+                   
                 </div>
+                <div class="hsbox">
+                    <div class="postbyt">
+                     <img width="50px" src="/public/image/experts.jpeg" alt=""> <p>Tushar Kumar</p> 
+
+                    </div>
+                    <div class="hstitle">
+                        <p>Tushar Kumar Share ing the </p>
+                    </div>
+                    <div class="videohs">
+                        <iframe id='player'src="https://www.youtube-nocookie.com/embed/GA7Fhq4_D2E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="hsviews">
+                        <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
+                    </div>
+                    <div class="likehs">
+                        <span><i class="bi bi-hand-thumbs-up"></i></span>
+                        <span><i class="bi bi-hand-thumbs-down"></i></span>
+                        <span><i class="fa-solid fa-share"></i></span>
+                    </div>
+
+                   
+                </div>
+               </div>
+               <script type="text/javascript">
+               //play when video is visible
+var videos = document.getElementsByTagName("iframe"), fraction = 0.8;
+
+function checkScroll() {
+
+  for(var i = 0; i < videos.length; i++) {
+    var video = videos[i];
+
+    var x = 0,
+        y = 0,
+        w = video.width,
+        h = video.height,
+        r, //right
+        b, //bottom 
+        visibleX, visibleY, visible,
+        parent;
+
+    
+    parent = video;
+    while (parent && parent !== document.body) {
+      x += parent.offsetLeft;
+      y += parent.offsetTop;
+      parent = parent.offsetParent;
+    }
+
+    r = x + parseInt(w);
+    b = y + parseInt(h);
+   
+
+    visibleX = Math.max(0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
+    visibleY = Math.max(0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
+    
+
+    visible = visibleX * visibleY / (w * h);
+
+
+    if (visible > fraction) {
+      playVideo();
+    } else {
+      pauseVideo();
+
+    }
+  }
+
+};
+
+
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+};
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    window.addEventListener('scroll', checkScroll, false);
+    window.addEventListener('resize', checkScroll, false);
+
+    //check at least once so you don't have to wait for scrolling for the    video to start
+    window.addEventListener('load', checkScroll, false);
+};
+
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      //console.log("event played");
+    } else {
+      //console.log("event paused");
+    }
+};
+
+function stopVideo() {
+    player.stopVideo();
+};
+
+function playVideo() {
+  player.playVideo();
+};
+
+function pauseVideo() {
+  player.pauseVideo();
+};
+
+
+
+            </script>
+              
+               
     <script>
         const form = document.getElementById('uiChange')
         const showf = document.getElementById('showf')

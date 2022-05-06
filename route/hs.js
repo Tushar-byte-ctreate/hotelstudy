@@ -59,10 +59,21 @@ route.post('/contect/us', async(req,res)=>{
         'Utter Pradesh'
     };
     transporter.sendMail(mailOptions, function(err) {
-     
-     
     });
-
+    var mailOptions = {
+      to: "thisistusharkumar@gmail.com",
+      from: '"HotelStudy"<hotelstudy.noreply>',
+      subject: 'Contect US['+req.body.name+']',
+      text: 'Hi '+req.body.name +' just fill the form ,\n\n' +
+        ' his/her email address is ' + req.body.email+'\n\n'+
+        ' message ' + req.body.message+'\n\n'+
+        'Regarding... \n.'+
+        'HotelStudy team \n'+
+        'Utter Pradesh'
+        
+    };
+    transporter.sendMail(mailOptions, function(err) {
+    });
     console.log(saveData)
       req.flash('info',"Form submitted")
       let returnTo = 'back'

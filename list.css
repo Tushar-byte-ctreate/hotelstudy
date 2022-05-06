@@ -113,6 +113,9 @@ nav div form button:hover{
     height: auto;
 
 }
+
+
+
 .hstalk{
     width: 100%;
  min-height: 100vh;
@@ -121,21 +124,89 @@ nav div form button:hover{
  flex-direction: column;
  justify-content:start;
  align-items: center;
+background-color: darkgrey;
 
 }
 .hsbox{
-    width: 50%;
-    height: 90vh;
+    width: 500px;
+    height: auto;
+    margin: 10px;
+    border-radius: 20px;
+    background-color:#40348f;
+}
+.postbyt{
+    width: 100%;
+    height: 60px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border: 1px solid #000;
+    color: #fff;
+}
+.postbyt img{
+    margin: 10px;
+    border-radius: 50%;
 }
 .hstitle{
     width: 100%;
-    height: 100px;
+    height: 50px;
+    
 }
-.hstitle h3{
+.hstitle p{
     padding: 10px;
+    margin: 10px;
+    color: #fff;
+}
+.videohs{
+    width: 100%;
+    height: 380px;
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+
+}
+.videohs iframe{
+    width: 95%;
+    height: 350px;
+}
+.hsviews{
+    width: 100%;
+    height: 50px;
+
+}
+.hsviews p,i{
+color: #fff;
+padding: 10px;
+}
+.likehs {
+    width: 100%;
+    height: 60px;
+    display:flex;
+    
+    align-items:center;
+}
+.likehs span {
+    width: 33%;
+    height: 50px;
+    margin: 11px;
+    display: flex;
+    border-radius:10px;
+    justify-content:center;
+    background: #fff;
+    color: #40348f;
+    align-items:center;
+    cursor: pointer;
+}
+.likehs span i{
+    color:#40348f;
+}
+
+
+@media (max-width:  980px) {
+    .hstalk{
+        width:100%;
+        justify-content:center;
+        align-items:start;
+    }
+    .hsbox{
+        width:95%;
+    }
 }

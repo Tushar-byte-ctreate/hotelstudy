@@ -50,7 +50,7 @@ route.get('/query/',async (req,res) => {
  
 if (article === undefined || article.length === 0) {
 
-  res.render('search',{searchResult:[],user:user,title:"search",description:""})
+  res.render('search',{searchResult:[],user:user,title:"search",description:"",count:0})
 }else{
 
 
@@ -58,7 +58,7 @@ if (article === undefined || article.length === 0) {
 
      const data =  article.articles
      console.log(data); 
-     res.render('search',{searchResult:data,user:user,title:"search",description:""})
+     res.render('search',{searchResult:data,user:user,title:"search",description:"",count: article.lenth})
   })
 }
 

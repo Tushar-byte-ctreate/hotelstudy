@@ -210,7 +210,8 @@ nav .toggal{
 }
 .userPro{
     position: absolute;
-    top: -30px;
+    top: -15px;
+    right: -0px;
     width: 150px;
     height: 50px;
     display: flex;

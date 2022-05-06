@@ -1,0 +1,19 @@
+<%- include('a-header'); -%>
+
+<div class="body-con" style='flex-direction:column; background:#6b5fb6'>
+    <div  class="user-wrapper">
+     
+    <form class="hstform" action="/admin/hst/<%=action%>" method="post">
+        <h3 style="color:#fff;">Filling all fields</h3>
+    <input type="text" name="title" id="" placeholder="Enter Title">
+    <input type="text" name="url" id="" placeholder="Enter Youtube URL">
+    <input type="text" name="discription" id="" placeholder="Enter Description">
+    <button type="submit">Save</button>
+    </form>
+</div>
+</div>
+
+
+
+
+<%- include('a-footer'); -%>
