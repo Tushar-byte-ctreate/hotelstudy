@@ -70,6 +70,16 @@ remove.addEventListener('click', () =>{
         errorr.style.display = 'none'
     })
 </script>
+<script type="text/javascript">
+    var curruntLocalStorage = location.href;
+    const indexA = document.getElementsByClassName('list-group');
+    const courselenth = indexA.length;
+    for(var i =0 ; i< courselenth ; i++){
+        if(indexA[i].href == curruntLocalStorage){
+            indexA[i].className = 'active'
+        }
+    }
+</script>
 <script src="/public/js/admin.js" type="text/javascript" defer></script>
 <!-- JavaScript Bundle with Popper -->
 

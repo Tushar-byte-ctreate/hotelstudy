@@ -2,71 +2,31 @@
 
 <%- include('hstnav'); -%>
 <div class="hstalk">
+  <% hst.forEach(function(hst){ %>
     <div class="hsbox">
         <div class="postbyt">
          <img width="50px" src="/image/mic.png" alt=""> <p>Tushar Kumar</p> 
 
         </div>
         <div class="hstitle">
-            <p>Tushar Kumar Share ing the </p>
+            <p><%=hst.title%> </p>
         </div>
         <div class="videohs">
-         <iframe  id="player" type="text/html"  src="https://www.youtube.com/embed/PKMQzkIiB0Y?enablejsapi=1&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; c encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe  id="player" type="text/html"  src="<%=hst.videoUrl%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; c encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="hsviews">
-            <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
+            <p> <i class="bi bi-calendar3"></i> <%=moment(hst.createdAt).fromNow()%><i class="bi bi-eye"></i>  55K</p>
         </div>
         <div class="likehs">
-            <span><i class="bi bi-hand-thumbs-up">5k</i></span>
+            <span data-liked='<%=hst._id%>'  class="liked-btn"><i  class="bi bi-hand-thumbs-up">5k</i></span>
             <span><i class="bi bi-hand-thumbs-down"></i></span>
             <span><i class="fa-solid fa-share">1k</i></span>
 
         </div>
-
-       
     </div>
-    <div class="hsbox">
-     <div class="postbyt">
-      <img width="50px" src="/image/mic.png" alt=""> <p>Tushar Kumar</p> 
-
-     </div>
-     <div class="hstitle">
-         <p>Tushar Kumar Share ing the </p>
-     </div>
-     <div class="videohs">
-      <iframe id="player" type="text/html"  src="https://www.youtube.com/embed/2wzBDkB0F4g?enablejsapi=1&autoplay=1" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
-     </div>
-     <div class="hsviews">
-         <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
-     </div>
-     <div class="likehs">
-         <span><i class="bi bi-hand-thumbs-up"></i></span>
-         <span><i class="bi bi-hand-thumbs-down"></i></span>
-         <span><i class="fa-solid fa-share"></i></span>
-
-     </div>
-
+  <% }) %>
     
- </div>
- <div class="hsbox">
-     <div class="postbyt">
-      <img width="50px" src="/image/mic.png" alt=""> <p>Tushar Kumar</p> 
 
-     </div>
-     <div class="hstitle">
-         <p>Tushar Kumar Share ing the </p>
-     </div>
-     <div class="videohs">
-         <iframe id='player'src="https://www.youtube-nocookie.com/embed/GA7Fhq4_D2E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-     </div>
-     <div class="hsviews">
-         <p> <i class="bi bi-calendar3"></i> 2 days ago <i class="bi bi-eye"></i>  55K</p>
-     </div>
-     <div class="likehs">
-         <span><i class="bi bi-hand-thumbs-up"></i></span>
-         <span><i class="bi bi-hand-thumbs-down"></i></span>
-         <span><i class="fa-solid fa-share"></i></span>
-     </div>
 
     
  </div>
@@ -167,6 +127,27 @@ player.playVideo();
 function pauseVideo() {
 player.pauseVideo();
 };
+
+
+</script>
+<script type="text/javascript">
+const liked_btn = document.querySelectorAll('.liked-btn');
+
+function updateLikes (data){
+    axios.post('/update/likes',data).then(res =>{
+        console.log(res)
+    })
+}
+
+liked_btn.forEach((like) => {
+    like.addEventListener('click',(e)=>{
+
+        let data = like.dataset.liked
+        console.log(data)
+
+    updateLikes(data)
+})
+})
 
 
 </script>

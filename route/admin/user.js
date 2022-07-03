@@ -9,7 +9,7 @@ route.get('/user/admin',adminValidate, async(req,res)=>{
     if(user_name == "thisistusharkumar@gmail.com"){
         const users = await User.find({})
 
-        res.render('admin/a-users',{users:users,error:req.flash('error'),info:req.flash('info'),user:req.user})
+        res.render('admin/a-users',{users:users,error:req.flash('error'),info:req.flash('info'),user:req.user,search : "suser"})
     }else{
         
 
@@ -39,7 +39,7 @@ const uEdit ={
     name:uedit.name
 }
     try{
-        res.render('admin/userEdit',{uEdit:uEdit,user:req.user})
+        res.render('admin/userEdit',{uEdit:uEdit,user:req.user,search : "suser"})
     } catch(error){
         req.flash('error',"something went wrong")
         res.redirect('/user/admin')

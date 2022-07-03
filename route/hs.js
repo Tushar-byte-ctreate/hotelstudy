@@ -35,7 +35,7 @@ route.get('/terms/condition',async(req,res)=>{
   res.render('aboutus',{title:'T&C',description:"",data : tnc,user:req.user})
 })
 route.get('/privecy-policy/',async(req,res)=>{
-  const title = "PnP" || "HotelStudy"
+  const title = "privecy policy" || "HotelStudy"
   const pp = await Company.findOne({title:"Privacy Policy"})
   res.render('aboutus',{title:title,description:"",data:pp,user:req.user})
 })
@@ -45,7 +45,14 @@ route.get('/experts/',async(req,res)=>{
   res.render('aboutus',{title:title,description:"",data:pp,user:req.user})
 })
 route.post('/contect/us', async(req,res)=>{
-    const data = req.body
+  const date = new Date().toLocaleDateString();
+    const data ={
+      name:req.body.name,
+      email:req.body.email, 
+      message:req.body.message,
+      date:date
+    };
+                            
     console.log(data)
     const saveData =  await Contect.create(data);
     var mailOptions = {

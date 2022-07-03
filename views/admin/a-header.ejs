@@ -29,8 +29,8 @@
             <h2 class=" m-3"> <i class="bi bi-speedometer2"></i> HotelStudy<sub style="color: black"><%=user.name%></sub> </h2>
 
             <div>
-                <form action="/search">
-                    <input type="search" name="" id="" placeholder="Enter search term">
+                <form action="/<%=search%>/" method="get">
+                    <input type="search" name="search_type" id="" placeholder="Enter search term">
                     <button type="submit"><i class="ni bi-search"></i></button>
                 </form>
                 <img id='userImg' style="cursor: pointer" width="30px" src="<%=user.profile%>" alt="">
@@ -54,8 +54,8 @@
         <a href="/course/list/admin" class="list-group"><i class="bi bi-book-half"></i> Courses</a>
         <a href="/admin/contact/us/page" class="list-group"><i class="bi bi-chat-dots"></i> Contacts</a>
         <a href='/user/payments/admin' class="list-group "> <i class="bi bi-currency-dollar"></i> Donations</a>
-        <a class="" href="/admin/hst/"><i class="bi bi-headset"></i> HS Talks</a>
-        <a class="" href="/admin/company/hs/"><i class="bi bi-building"></i> Company</a>
-        <a href='' class="list-group "> <i class="bi bi-gear"></i> Settings</a>
-        <a href='' class="list-group "> <i class="bi bi-door-closed"></i> Logout</a>
+        <a class="list-group" href="/admin/hst/"><i class="bi bi-headset"></i> HS Talks</a>
+        <a class="list-group" href="/admin/company/hs/"><i class="bi bi-building"></i> Company</a>
+        <a href='/admin/setting' class="list-group "> <i class="bi bi-gear"></i> Settings</a>
+        <a href='/logout' class="list-group "> <i class="bi bi-door-closed"></i> Logout</a>
       </div>

@@ -66,6 +66,7 @@ if (article === undefined || article.length === 0) {
    
 })
 route.get('/:id',async(req, res) => {
+  
     // const id = req.params.id
     // const article = await Article.findById(id);
     // const course = await Course.findById({_id:article.courseId})

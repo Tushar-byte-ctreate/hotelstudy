@@ -18,7 +18,7 @@
 <%}%>
 <div class="body-con" style='flex-direction:column;'>
     <div  class="user-wrapper">
-        <div class="list-header"><h2>course Lists</h2> <strong id="add-btn"> Add New One <i class="bi bi-plus-square"></i></strong> </div>
+        <div class="list-header"><h2>Course Lists</h2> <strong id="add-btn"> Add New One <i class="bi bi-plus-square"></i></strong> </div>
         <% course.forEach(function(course){ %>
           <div class="user-card " style="background:#ffb644;" onMouseOver="this.style.background='#ec639f'"  onMouseOut="this.style.background='#ffb644'">
             <a href="/admin/course/<%=course._id%>"><%=course.name%></a> <span class=""><a href="/delete/admin/<%=course._id%>"><i class="bi bi-trash-fill"></i></a>

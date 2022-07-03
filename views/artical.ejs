@@ -89,16 +89,10 @@
 
    </div>
    <div class="container-8">
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
-    <a href=""> As more..</a>
+    
+    <% cSuggation.forEach(function(cSuggation){ %>
+      <a href="/<%= cSuggation.slugCourse %>"> <%=cSuggation.name%></a>
+    <%}) %>
 </div>
 
 

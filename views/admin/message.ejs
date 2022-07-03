@@ -1,0 +1,24 @@
+<%- include('a-header'); -%> <% if(error == "" || error == null ){%> <%}else{%>
+<span class="error">
+  <p><%=error%></p>
+  <i id="removeFlash" class="bi bi-x-lg"></i>
+</span>
+<%}%> <% if(info == "" ||info == null){%> <% }else{%>
+<span class="info">
+  <p><%= info%></p>
+  <i id="removeFlash" class="bi bi-x-lg"></i>
+</span>
+
+<%} %>
+<div class="body-con" style="flex-direction: column">
+  <div class="user-wrapper">
+    <div class="list-header"><h2>Contact Message</h2></div>
+    <div class="message-wrapper"> <div  class="nameClock"><h3><%=userData.name%></h3> <p><i class="bi bi-clock"></i> <%= moment(userData.date).fromNow() %></p></div> 
+        <h5 style="padding:10px"><%=userData.email%></h5>
+        <p><%=userData.message%></p>
+        <button><a href="/admin/give/reply/<%=userData._id%>">Give the Reply</a></button></div>
+  
+  </div>
+</div>
+
+<%- include('a-footer'); -%>

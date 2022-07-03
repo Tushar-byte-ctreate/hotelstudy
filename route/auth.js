@@ -73,15 +73,14 @@ route.post("/sign-up/user", (req, res) => {
 
  const token = crypto.randomBytes(20).toString('hex')
 
-  console.log(token)
-    console.log(req.body)
+ 
     User.register({username:req.body.username, type:req.body.type, name:req.body.name ,token:token, tokenExpires:Date.now() + 3600000}, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
             console.log(err)
         }
         passport.authenticate("local")(req, res, function(info){
-          console.log(info)
+         
           req.logout();
 
           var mailOptions = {
@@ -108,7 +107,7 @@ route.post("/sign-up/user", (req, res) => {
     const token = req.params.token;
 
     const user = await User.findOneAndUpdate({ token: req.params.token} , {$set:{verify:'true'}})
-    console.log(user)
+    
 
     if(!user) {
      
@@ -121,7 +120,7 @@ route.post("/sign-up/user", (req, res) => {
   route.post("/login/user",async (req,res)=>{
   
 const user = await User.findOne({username:req.body.username});
-console.log(user)
+
 
 if(!user  ) {
 
@@ -148,8 +147,8 @@ else {
            console.log(err)
        }else{
         passport.authenticate("local")(req, res, function(){
-         console.log(user)
-         if(user.admin == "true") return res.redirect('/Ad-min')
+      
+         if(user.admin == "true") return res.redirect('/admin-home')
          let returnTo = '/'
          if (req.session.returnTo) {
            returnTo = req.session.returnTo

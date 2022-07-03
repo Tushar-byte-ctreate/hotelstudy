@@ -3,6 +3,10 @@
     margin: 0;
     font-family: 'Kanit', sans-serif;
 }
+.active{
+    background:rgb(156, 202, 241);
+    border-radius:5px 0 0 5px;
+}
 nav{
     width: 100%;
     height: 60px;
@@ -476,4 +480,45 @@ border: none;
     border: none;
     cursor: pointer;
     border-radius: 20px;
+}
+
+/* message-wrapper */
+.message-wrapper{
+    width: 90%;
+    min-height:70vh;
+    height: auto;
+}
+.message-wrapper h3{
+    padding:20px 10px;
+    font-size: 18px;
+}
+.message-wrapper p{
+padding: 30px 20px;
+}
+.message-wrapper button{
+    margin-left: 300px;
+    width: 400px;
+    height: 40px;
+    background-color: #ec639f;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.nameClock{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.nameClock p{
+    padding: 0 10px;
+}
+/* reply textareaReply */
+.textareaReply{
+    
+    width: 650px;
+    height: 300px;
 }

@@ -4,8 +4,13 @@ const conSchema = new mongoose.Schema({
     title:String,
     slugTitle :String,
      videoUrl:String,
-     like:Number,
-     dislikes:Number,
+     like:[{
+         userId:{type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'}}],
+     dislikes:[{
+        userId:{type: mongoose.Schema.Types.ObjectId,
+       ref: 'User'}}],
+     discription:String,
      views:Number 
 },{timestamps:true})
 

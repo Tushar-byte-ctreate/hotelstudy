@@ -5,9 +5,6 @@ const contectSchema = new mongoose.Schema({
     message : {type:String },
     checkBox:String,
     date:{type:String}
-}
-,{
-    timestamps:true
 })
 
 module.exports = mongoose.model('Contect',  contectSchema)

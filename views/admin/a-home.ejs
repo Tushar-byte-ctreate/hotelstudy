@@ -21,12 +21,12 @@
         <div class="child-box"> 
             <h3 >Users</h3>
             <h4><%=uc%></h4>
-          <a href=""> <i class="bi bi-arrow-right-square-fill"></i></a>
+          <a href="/user/admin"> <i class="bi bi-arrow-right-square-fill"></i></a>
        </div>
        <div class="child-box"> 
         <h3 >Courses</h3>
         <h4><%=cc%></h4>
-      <a href=""> <i class="bi bi-arrow-right-square-fill"></i></a>
+      <a href="/course/list/admin"> <i class="bi bi-arrow-right-square-fill"></i></a>
    </div>
    <div class="child-box"> 
     <h3 >Comment</h3>
@@ -41,7 +41,7 @@
             <%  contect.forEach(function(cont){%>
               <div class="form-fill">
                 <h4 style="color:#ec639f;" ><%=cont.name%></h4>
-                <p><%=cont.message%></p>
+                <p><%=cont.message.substring(0, 30)%></p>
             </div>
              <% })%>
                

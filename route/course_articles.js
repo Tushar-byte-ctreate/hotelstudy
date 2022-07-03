@@ -1,6 +1,5 @@
 const route = require('express').Router();
 
-
 const Course = require('../modules/course')
 const Comment = require('../modules/comment')
 const User = require('../modules/user')
@@ -27,9 +26,8 @@ route.get('/courses-list/', async(req,res)=>{
     })||""
     console.log(fnb)
 
-    res.render('course_list',{title:'Courses',fnb:fnb,hk:hk,fo:fo,univers:un,fp:fp ,description:"All courses of HotelStudy"})
+    res.render('course_list',{title:'Courses',fnb:fnb,hk:hk,fo:fo,univers:un,fp:fp ,description:"All courses of HotelStudy",user:req.user})
 })
-
 
 
 route.get('/:slugCourse', async(req,res)=>{
@@ -43,17 +41,22 @@ res.redirect('/'+courseslug+'/'+art.slugtitle+'')
 })
 
 
- 
 route.get('/:courseslug/:articleslug', async (req,res)=>{
     const cslug = req.params.courseslug
     const course = await Course.findOne({slugCourse: cslug})
+    const courseSuggation = await Course.find({});
     const aslug = req.params.articleslug
     const cid = course._id
     const articles = course.articles
-    const userId = ''
+    const userId = '';
     // const comments = await Comment.find({postId:art._id})
     // console.log(comments)
 //  const admin = await User.findById(userId)
+//sending suggation to user choose another course 
+
+const limit = 7, index = 0;
+const cSuggation = courseSuggation.slice(index, limit + index)
+
     const article = articles.find((value)=>{
             return value.slugtitle == aslug
     })
@@ -82,7 +85,8 @@ const title = article.title || HotelStudy
           username: user.username,
           comments:comments,
           title :title,
-          description:article.discription
+          description:article.discription,
+          cSuggation : cSuggation
           })
     } catch (error) {
         console.log(error)
