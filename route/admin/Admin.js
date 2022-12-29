@@ -17,6 +17,7 @@ const company = require('./company')
 const contact = require('./contactus')
 const hst = require('./hst')
 const search = require('./search')
+const settings = require('./settings')
 
 route.use(hst)
 route.use(users)
@@ -24,6 +25,7 @@ route.use(course)
 route.use(company)
 route.use(contact)
 route.use(search)
+route.use(settings)
 
  function validation(req,res,next) {
     const user_name = req.user.username 

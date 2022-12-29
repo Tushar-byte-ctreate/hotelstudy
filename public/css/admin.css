@@ -39,9 +39,9 @@ nav div form input{
     width: 200px;
     height: 30px;
     outline: none;
-font-size:15px;
-border:none;
-border-bottom: 2px solid #40348f;
+   font-size:15px;
+   border:none;
+   border-bottom: 2px solid #40348f;
 }
 nav div form input:focus{
  outline: none;
@@ -521,4 +521,37 @@ padding: 30px 20px;
     
     width: 650px;
     height: 300px;
+}
+/* formDiv */
+.formDiv{
+    width:100%;
+    min-height:100vh;
+
+    height:auto;
+
+}
+ #formfile {
+  width:80%;
+  min-height:100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+
+}
+#formfile textarea{
+    width: 80%;
+    min-height:95vh;
+    height: auto;
+}
+#formfile button{
+    width: 100px;
+    height: 35px;
+    background-color: #ec639f;
+    color: #fff;
+    border:none;
+    margin-left:500px;
+    cursor: pointer;
+    border-radius: 5px;
 }

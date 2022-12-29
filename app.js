@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const session = require('express-session');  // session middleware
 const passport = require('passport');  // authentication
 var flash = require('connect-flash');
-mongoose.connect('mongodb+srv://admin_tushar:'+ process.env.PASS_WORD+'@cluster0.9uywv.mongodb.net/Blogweb', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{ console.log('db connected')}).catch(err => console.log(err))
+mongoose.connect('mongodb+srv://iam_tushar:'+ process.env.PASS_WORD+'@cluster0.9uywv.mongodb.net/Blogweb', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{ console.log('db connected')}).catch(err => console.log(err))
 const Course = require('./modules/course')
 const News = require('./modules/newsH')
 const home = require('./route/home')

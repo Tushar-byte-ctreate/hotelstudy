@@ -1,7 +1,10 @@
 <%- include('header'); -%>
 
 <%- include('hstnav'); -%>
+
 <div class="hstalk">
+    <div class="CheckUser"><i id="hideLogin" class="fas fa-times "></i>
+        <p>🙂</p><a   href="/login/user-auth">Login Please !</a></div>
   <% hst.forEach(function(hst){ %>
     <div class="hsbox">
         <div class="postbyt">
@@ -18,17 +21,20 @@
             <p> <i class="bi bi-calendar3"></i> <%=moment(hst.createdAt).fromNow()%><i class="bi bi-eye"></i>  55K</p>
         </div>
         <div class="likehs">
-            <span data-liked='<%=hst._id%>'  class="liked-btn"><i  class="bi bi-hand-thumbs-up">5k</i></span>
-            <span><i class="bi bi-hand-thumbs-down"></i></span>
+            <% if (locals.session.loggedin){ %>
+                <span  data-liked='<%=hst._id%>' class="liked-btn"><i  class="bi bi-hand-thumbs-up"></i> <p  id="like-count" >0</p></span>
+                <% }else{ %>
+                    <span class="showLogin"><i liked_value class="bi bi-hand-thumbs-up"></i></span>
+                    <% } %>
+                    <% if (locals.session.loggedin){ %>
+                        <span data-liked='<%=hst._id%>'  class="disliked-btn"><i  class="bi bi-hand-thumbs-down"></i></span>
+                        <% }else{ %>
+                            <span class="showLogin"><i  class="bi bi-hand-thumbs-down"></i></span>
+                            <% } %>  
             <span><i class="fa-solid fa-share">1k</i></span>
-
         </div>
     </div>
-  <% }) %>
-    
-
-
-    
+  <% }) %> 
  </div>
 </div>
 <script type="text/javascript">
@@ -132,24 +138,49 @@ player.pauseVideo();
 </script>
 <script type="text/javascript">
 const liked_btn = document.querySelectorAll('.liked-btn');
+const disliked_btn = document.querySelectorAll('.disliked-btn');
+const CheckUser = document.querySelector('.CheckUser');
+const showLogin = document.querySelectorAll('.showLogin');
+const hideLogin = document.querySelector('#hideLogin');
+const like_count = document.querySelector('#like_count')
+showLogin.forEach((show)=>{
+    show.addEventListener('click',()=>{
+    CheckUser.style.display = 'flex' ;
+})
 
-function updateLikes (data){
-    axios.post('/update/likes',data).then(res =>{
+})
+hideLogin.addEventListener('click',()=>{
+    CheckUser.style.display = 'none';
+})
+liked_btn.forEach((like) => {
+    like.classList.add('onLiked')
+    like.addEventListener('click',(e)=>{
+        let data = like.dataset.liked
+        
+        console.log(data)
+        axios.post('/update/'+ data+'/likes',{postId : data}).then(res =>{
         console.log(res)
     })
-}
-
-liked_btn.forEach((like) => {
+ 
+})
+})
+disliked_btn.forEach((like) => {
     like.addEventListener('click',(e)=>{
-
         let data = like.dataset.liked
         console.log(data)
-
-    updateLikes(data)
+        axios.post('/update/'+ data+'/dislikes',{postId : data}).then(res =>{
+        console.log(res)
+    })
+    
 })
 })
-
-
 </script>
-
+<script>
+    liked_btn.forEach((like)=>{
+    like.addEvenetListner('click',()=>{
+        console.log('here')
+        
+    })
+})
+ </script>
 <%- include('footer'); -%>

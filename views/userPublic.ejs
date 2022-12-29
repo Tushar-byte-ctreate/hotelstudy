@@ -47,11 +47,7 @@
   <div class="userp">
     <img src=" data:image/<%=news.image.contentType%>;base64,<%=news.image.data.toString('base64')%> " alt="">
     <p><%=news.title%></p>
-    <% if(news.type === "public") {  %>
-      <p style="color: green">Public</p>
-    <% }else{ %>
-      <p style="color: red">Draft</p>
-    <% } %>
+   
     <span style="display:flex; justify-content:center;"> <p><i class="bi bi-eye"></i> <%=news.views%></p></span>
     <span>
      

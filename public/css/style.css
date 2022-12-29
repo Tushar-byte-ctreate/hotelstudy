@@ -1583,10 +1583,10 @@ box-shadow: 10px 14px 26px -5px rgba(0,0,0,0.43);
 }
 #uiChange{
     position: absolute;
-    top: 70px;
+    top: 100px;
     left: 50px;
     width: 300px;
-    height: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -1596,6 +1596,13 @@ box-shadow: 10px 14px 26px -5px rgba(0,0,0,0.43);
     background-color: #fff;
     display:none;
 }
+#uiChange img {
+width: 200px;
+height: 200px;
+padding: 20px;
+border: 2px solid #40348f;
+}
+
 #uiChange input{
     width: 150px;
 }
@@ -1633,6 +1640,11 @@ box-shadow: 10px 14px 26px -5px rgba(0,0,0,0.43);
     color: #fff;
     background-color: #40348f;
     margin: 5px;
+}
+.btns{
+    width: 70px;
+    height: 35px;
+    padding: 10px;
 }
 @media (max-width:  980px){
     .userprofile{

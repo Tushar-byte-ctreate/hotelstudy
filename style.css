@@ -1,0 +1,25 @@
+.settings{
+    width: 70%;
+    min-height:100vh;height: inherit;
+    display: flex;
+}
+
+.setting-box {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border:#40348f 1px solid;
+    border-radius: 10px;
+}
+ caption{
+font-size:25px;
+font-weight: bold;
+}
+.setting-img{
+    width: 150px;
+}

@@ -3,6 +3,7 @@
 <footer>
     <h3>(C) PB (Panchals Brothers)</h3>
 </footer>
+
 <script>
     const form = document.querySelector('.add-form');
 const removeForm = document.querySelector('#btn-cancel');
@@ -59,6 +60,16 @@ remove.addEventListener('click', () =>{
   dialogsInBody: true
 });
         </script>
+        <script>
+            $(document).ready(function() {
+                var  htmleditor = document.querySelector
+                var value = $('#hideinput').val()
+                console.log(value)
+                $('#htmleditor').val(value)
+            })
+            
+            </script>
+
 <script>
     const errorr = document.querySelector('.error')
     const info = document.querySelector('.info')
@@ -70,6 +81,7 @@ remove.addEventListener('click', () =>{
         errorr.style.display = 'none'
     })
 </script>
+
 <script type="text/javascript">
     var curruntLocalStorage = location.href;
     const indexA = document.getElementsByClassName('list-group');
