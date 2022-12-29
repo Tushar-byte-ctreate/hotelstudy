@@ -31,7 +31,7 @@ var moment = require('moment');
 app.locals.moment = require('moment');
 app.use('/uploads',express.static(__dirname + './uploads'));
 app.use(express.static((__dirname, 'public')));
-app.use('views', express.static(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
 
