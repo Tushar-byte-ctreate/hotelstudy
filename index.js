@@ -70,7 +70,8 @@ app.use(function (req, res, next) {
 app.get('/', async(req,res) => {
   const courses = await Course.find({})
   const title = "HotelStudy";
-      res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""}) 
+  res.send(courses)
+      // res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""}) 
   })
 
 app.use(userProfile)
