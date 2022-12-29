@@ -7,8 +7,7 @@ const passport = require('passport');  // authentication
 var flash = require('connect-flash');
 const LocalStrategy = require('passport-local').Strategy;
 const nodemailer = require("nodemailer");
-const crypto = require('crypto')
-const bcrypt = require('bcrypt')
+
 const async = require('async');
 
 route.use(session({
