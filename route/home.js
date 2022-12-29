@@ -5,17 +5,7 @@ const Company = require('../modules/hs')
 var path = require('path');
 var fs = require('fs');
 
-route.get('/', async(req,res) => {
 
-const courses = await Course.find({})
-
-
-
-const title = "HotelStudy";
-    res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""})
-        
-    
-})
 
 
 

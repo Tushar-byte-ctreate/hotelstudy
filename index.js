@@ -67,6 +67,12 @@ app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
 });
+app.get('/', async(req,res) => {
+  const courses = await Course.find({})
+  const title = "HotelStudy";
+      res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""}) 
+  })
+
 app.use(userProfile)
 app.use(home)
 app.use(news)
