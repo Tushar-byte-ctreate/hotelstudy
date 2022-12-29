@@ -31,8 +31,9 @@ var moment = require('moment');
 app.locals.moment = require('moment');
 app.use('/uploads',express.static(__dirname + './uploads'));
 app.use(express.static((__dirname, 'public')));
+app.use('views', express.static(__dirname, 'views'));
 app.set("view engine", "ejs");
-app.set("views", (__dirname, "views"));
+
 
 
 
@@ -70,8 +71,8 @@ app.use(function (req, res, next) {
 app.get('/', async(req,res) => {
   const courses = await Course.find({})
   const title = "HotelStudy";
-  res.send(courses)
-      // res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""}) 
+  // res.send(courses)
+       res.render('home',{title: "HotelStudy",course:courses,user:req.user,description:""}) 
   })
 
 app.use(userProfile)
