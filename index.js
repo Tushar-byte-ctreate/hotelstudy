@@ -57,20 +57,37 @@ const upload = multer({storage:storage}).single('image');
 app.use('/uploads',express.static(__dirname + './uploads'));
 app.use(express .urlencoded({extended:true}));
 app.use(flash());
+app.set('trust proxy', 1);
 app.use(cookieParser());
 app.use(express.json())
 app.use(session({
-    secret:' thisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
+  cookie:{
+      secure: true,
+      maxAge:60000
+         },
+  store: new RedisStore(),
+  secret: 'sthisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
+  saveUninitialized: true,
+  resave: false
   }));
+// app.use(session({
+//     secret:' thisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
+//   }));
   app.use(passport.initialize());
 app.use(passport.session());
-app.use(function (req, res, next) {
-  res.locals.session = req.session;
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.session = req.session;
+//   next();
+// });
+app.use(function(req,res,next){
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+  });
 app.get('/', async(req,res) => {
   const courses = await Course.find({})
   const title = "HotelStudy";
