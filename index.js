@@ -27,6 +27,7 @@ const hstalks = require ('./route/hoteltalks/home')
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path')
+const MongoStore = require('connect-mongo');
 var moment = require('moment');
 app.locals.moment = require('moment');
 app.use('/uploads',express.static(__dirname + './uploads'));
@@ -60,22 +61,29 @@ app.use(flash());
 app.set('trust proxy', 1);
 app.use(cookieParser());
 app.use(express.json())
-app.use(session({
-  cookie:{
-      secure: true,
-      maxAge:60000
-         },
-  store: new RedisStore(),
-  secret: 'sthisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
-  saveUninitialized: true,
-  resave: false
-  }));
+// app.use(session({
+//   cookie:{
+//       secure: true,
+//       maxAge:60000
+//          },
+//   store: new RedisStore(),
+//   secret: 'sthisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
+//   saveUninitialized: true,
+//   resave: false
+//   }));
 // app.use(session({
 //     secret:' thisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
 //     resave: false,
 //     saveUninitialized: true,
 //     cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 //   }));
+app.use(session({
+  secret:' thisistusharkumarpanchal!@#$%^&*()123456789!@#$%^&*()_+|',
+  store: MongoStore.create({
+    mongoUrl: 'mongodb+srv://iam_tushar:'+ process.env.PASS_WORD+'@cluster0.9uywv.mongodb.net/Blogweb',
+    ttl: 14 * 24 * 60 * 60 // = 14 days. Default
+  })
+}));
   app.use(passport.initialize());
 app.use(passport.session());
 app.use(function (req, res, next) {
