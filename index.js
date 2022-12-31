@@ -7,7 +7,7 @@ var slugify = require('slugify')
 
 
 const cookieParser = require("cookie-parser");
-const session = require('express-session');  // session middleware
+const session =  require('cookie-session') // session middleware
 const passport = require('passport');  // authentication
 var flash = require('connect-flash');
 mongoose.connect('mongodb+srv://iam_tushar:'+ process.env.PASS_WORD+'@cluster0.9uywv.mongodb.net/Blogweb', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{ console.log('db connected')}).catch(err => console.log(err))
@@ -78,16 +78,16 @@ app.use(session({
 //   }));
   app.use(passport.initialize());
 app.use(passport.session());
-// app.use(function (req, res, next) {
-//   res.locals.session = req.session;
-//   next();
-// });
-app.use(function(req,res,next){
-  if(!req.session){
-      return next(new Error('Oh no')) //handle error
-  }
-  next() //otherwise continue
-  });
+app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
+// app.use(function(req,res,next){
+//   if(!req.session){
+//       return next(new Error('Oh no')) //handle error
+//   }
+//   next() //otherwise continue
+//   });
 app.get('/', async(req,res) => {
   const courses = await Course.find({})
   const title = "HotelStudy";
